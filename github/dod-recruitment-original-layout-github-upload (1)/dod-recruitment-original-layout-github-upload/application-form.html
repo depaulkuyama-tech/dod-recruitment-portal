@@ -1,0 +1,3670 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Position Vacancies Application Form | Department of Defence PNG</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --dod-green: #0f5132;
+      --dod-green-dark: #102019;
+      --dod-gold: #ffc107;
+      --dod-light: #f4f7f5;
+      --dod-border: rgba(15, 81, 50, 0.25);
+      --dod-orange: #c56618;
+      --dod-button: #198754;
+      --dod-button-dark: #0f5132;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(120deg, rgba(9, 44, 28, 0.90), rgba(15, 81, 50, 0.72)),
+        url('background.jpg') center/cover fixed;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #18251e;
+    }
+
+    .page-shell {
+      max-width: 1050px;
+      margin: 28px auto;
+      background: rgba(244, 247, 245, 0.96);
+      min-height: calc(100vh - 56px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 1.25rem;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+      overflow: hidden;
+    }
+
+    .form-header {
+      padding: 24px 68px 24px;
+      text-align: center;
+      border-bottom: none;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .brand-banner {
+      min-height: 135px;
+      background: #0f5132;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 18px 24px;
+      margin-bottom: 22px;
+      border-radius: 1.15rem;
+      box-shadow: 0 10px 28px rgba(16, 32, 25, 0.12);
+      border: none;
+    }
+
+    .brand-logo {
+      width: 105px;
+      height: 105px;
+      max-width: 60%;
+      object-fit: contain;
+      margin-bottom: 0;
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+    }
+
+    .brand-title {
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-shadow: none;
+      margin: 0;
+    }
+
+    .form-title {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 800;
+      font-size: 1.75rem;
+      margin-bottom: 10px;
+      color: var(--dod-green);
+    }
+
+    .form-subtitle {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .form-body {
+      padding: 0;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    .form-section {
+      padding: 34px 68px 40px;
+      border-bottom: 1px solid var(--dod-border);
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    .instructions-box {
+      margin: 0;
+      background: #fff;
+      border-left: 6px solid var(--dod-gold);
+      border-radius: 1rem;
+      padding: 20px 24px;
+      box-shadow: 0 10px 28px rgba(16, 32, 25, 0.08);
+    }
+
+    .instructions-box h3 {
+      color: var(--dod-green);
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .instructions-box ul {
+      margin-bottom: 0;
+      padding-left: 1.2rem;
+    }
+
+    .instructions-box li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .step-one-layout {
+      display: grid;
+      grid-template-columns: 1fr 230px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .step-one-main {
+      min-width: 0;
+    }
+
+    .passport-photo-card {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 16px;
+      border: 1px solid rgba(15, 81, 50, 0.28);
+      box-shadow: 0 8px 22px rgba(16, 32, 25, 0.06);
+      align-self: start;
+      margin-top: 0;
+    }
+
+    .passport-photo-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--dod-green);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .passport-photo-box {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border: 1px dashed var(--dod-green);
+      background: #f8fbf9;
+      border-radius: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .passport-photo-box input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .passport-photo-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      border-radius: 0.65rem;
+    }
+
+    .passport-photo-placeholder {
+      color: #47554d;
+      font-size: 0.86rem;
+    }
+
+    .passport-photo-placeholder i {
+      display: block;
+      font-size: 2rem;
+      color: var(--dod-green);
+      margin-bottom: 8px;
+    }
+
+    .photo-note {
+      font-size: 0.78rem;
+      color: #6b5c46;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .form-row-custom {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 38px;
+      margin-bottom: 24px;
+    }
+
+    label {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .form-control,
+    .form-select {
+      border: 1px solid rgba(15, 81, 50, 0.38);
+      border-radius: 0.65rem;
+      min-height: 46px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #fff;
+      color: #18251e;
+      box-shadow: 0 5px 16px rgba(16, 32, 25, 0.04);
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--dod-green);
+      box-shadow: 0 0 0 0.18rem rgba(36, 77, 22, 0.18);
+    }
+
+    .gender-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .form-check-input {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-color: #555;
+    }
+
+    .upload-box {
+      border: 1px dashed var(--dod-green);
+      background: #fff;
+      min-height: 135px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      padding: 18px;
+      border-radius: 0.85rem;
+      box-shadow: 0 8px 22px rgba(16, 32, 25, 0.05);
+    }
+
+    .upload-box:hover {
+      background: #f8f8f8;
+      border-color: var(--dod-green);
+    }
+
+    .upload-box input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .upload-icon {
+      font-size: 2rem;
+      color: #725d52;
+      line-height: 1;
+    }
+
+    .upload-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--dod-green);
+      margin-top: 8px;
+    }
+
+    .upload-hint {
+      font-size: 0.85rem;
+      color: #333;
+    }
+
+    .file-note {
+      font-size: 0.78rem;
+      color: #6b5c46;
+      margin-top: 8px;
+    }
+
+    .selected-file {
+      font-size: 0.82rem;
+      margin-top: 8px;
+      color: var(--dod-green-dark);
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+
+    .vacancy-selector-intro {
+      background: #fff;
+      border-left: 5px solid var(--dod-green);
+      color: var(--dod-green-dark);
+      padding: 14px 18px;
+      border-radius: 0.85rem;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 22px rgba(16, 32, 25, 0.05);
+    }
+
+    .vacancy-selector-intro h3 {
+      color: var(--dod-green);
+      font-size: 1.1rem;
+      font-weight: 850;
+      margin: 0 0 6px;
+    }
+
+    .vacancy-search-row {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .vacancy-division-card {
+      background: #eef8f2;
+      border: 1px solid rgba(15, 81, 50, 0.22);
+      border-radius: 1rem;
+      margin-bottom: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(16, 32, 25, 0.05);
+    }
+
+    .vacancy-division-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      background: #d8eadf;
+      border-left: 6px solid var(--dod-green);
+    }
+
+    .vacancy-division-header h3 {
+      margin: 0 0 4px;
+      color: var(--dod-green-dark);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .vacancy-division-header p {
+      margin: 0;
+      color: #405448;
+      font-size: 0.9rem;
+    }
+
+    .view-positions-btn {
+      border: 1px solid rgba(15, 81, 50, 0.30);
+      background: #f4fbf6;
+      color: var(--dod-green-dark);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .view-positions-btn:hover {
+      background: var(--dod-green);
+      color: #fff;
+    }
+
+    .vacancy-panel {
+      display: none;
+      border-top: 1px solid rgba(15, 81, 50, 0.12);
+      background: #ffffff;
+    }
+
+    .vacancy-panel.open {
+      display: block;
+    }
+
+    .vacancy-table {
+      width: 100%;
+      margin: 0;
+      border-collapse: collapse;
+    }
+
+    .vacancy-table th,
+    .vacancy-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(15, 81, 50, 0.10);
+      vertical-align: middle;
+      font-size: 0.92rem;
+    }
+
+    .vacancy-table th {
+      background: #f1f7f4;
+      color: var(--dod-green);
+      font-weight: 850;
+    }
+
+    .select-vacancy-btn {
+      border: 0;
+      background: var(--dod-green);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 0.65rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .select-vacancy-btn:hover {
+      background: #0b3f27;
+    }
+
+    .select-vacancy-btn.selected {
+      background: var(--dod-gold);
+      color: #102019;
+    }
+
+    .selected-vacancy-box {
+      display: none;
+      background: #d8ecdf;
+      border-left: 5px solid var(--dod-green);
+      color: var(--dod-green-dark);
+      padding: 14px 18px;
+      border-radius: 0.85rem;
+      margin-bottom: 22px;
+      font-weight: 650;
+    }
+
+    .selected-vacancy-box.show {
+      display: block;
+    }
+
+    .selected-vacancy-box strong {
+      color: var(--dod-green);
+    }
+
+    .auto-fill-note {
+      display: none;
+      background: #d8ecdf;
+      border-left: 5px solid var(--dod-green);
+      color: var(--dod-green-dark);
+      padding: 12px 16px;
+      border-radius: 0.75rem;
+      margin-bottom: 22px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .auto-fill-note.show {
+      display: block;
+    }
+
+    .actions {
+      padding: 28px 68px 46px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .btn-form {
+      border: 0;
+      min-width: 125px;
+      padding: 12px 30px;
+      border-radius: 0.65rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(16, 32, 25, 0.16);
+    }
+
+    .btn-exit {
+      background: var(--dod-orange);
+    }
+
+    .btn-back {
+      background: var(--dod-gold);
+      color: #102019;
+    }
+
+    .btn-next,
+    .btn-submit {
+      background: var(--dod-button-dark);
+      font-size: 1.05rem;
+    }
+
+    .btn-form:hover {
+      opacity: 0.92;
+      color: #fff;
+    }
+
+    .required {
+      color: #a60000;
+      font-weight: 700;
+    }
+
+    .progress-wrap {
+      padding: 24px 68px 8px;
+      background: rgba(255, 255, 255, 0.72);
+      border-bottom: 1px solid var(--dod-border);
+    }
+
+    .progress-label-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--dod-green-dark);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 14px;
+      background: rgba(15, 81, 50, 0.12);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 81, 50, 0.28);
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: var(--dod-green);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+
+    .step-indicators {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .step-pill {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 999px;
+      text-align: center;
+      font-size: 0.86rem;
+      font-weight: 700;
+      background: #fff;
+      color: var(--dod-green);
+      border: 1px solid rgba(15, 81, 50, 0.28);
+    }
+
+    .step-pill.active {
+      background: var(--dod-green);
+      color: #fff;
+      border-color: var(--dod-green);
+    }
+
+    .step-pill.completed {
+      background: #d8ecdf;
+      color: var(--dod-green);
+      border-color: var(--dod-green);
+    }
+
+    .review-box {
+      background: #fff;
+      border: 1px solid rgba(15, 81, 50, 0.28);
+      border-radius: 1rem;
+      padding: 20px;
+      box-shadow: 0 8px 22px rgba(16, 32, 25, 0.05);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 22px;
+      margin-top: 16px;
+    }
+
+    .review-item {
+      border-bottom: 1px solid rgba(15, 81, 50, 0.12);
+      padding-bottom: 10px;
+    }
+
+    .review-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--dod-green);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 3px;
+    }
+
+    .review-value {
+      font-size: 0.98rem;
+      color: #18251e;
+      word-break: break-word;
+    }
+
+    @media (max-width: 768px) {
+      .progress-wrap,
+      .form-header,
+      .form-section,
+  
+    .vacancy-selector-intro {
+      background: #fff;
+      border-left: 5px solid var(--dod-green);
+      color: var(--dod-green-dark);
+      padding: 14px 18px;
+      border-radius: 0.85rem;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 22px rgba(16, 32, 25, 0.05);
+    }
+
+    .vacancy-selector-intro h3 {
+      color: var(--dod-green);
+      font-size: 1.1rem;
+      font-weight: 850;
+      margin: 0 0 6px;
+    }
+
+    .vacancy-search-row {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .vacancy-division-card {
+      background: #eef8f2;
+      border: 1px solid rgba(15, 81, 50, 0.22);
+      border-radius: 1rem;
+      margin-bottom: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(16, 32, 25, 0.05);
+    }
+
+    .vacancy-division-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      background: #d8eadf;
+      border-left: 6px solid var(--dod-green);
+    }
+
+    .vacancy-division-header h3 {
+      margin: 0 0 4px;
+      color: var(--dod-green-dark);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .vacancy-division-header p {
+      margin: 0;
+      color: #405448;
+      font-size: 0.9rem;
+    }
+
+    .view-positions-btn {
+      border: 1px solid rgba(15, 81, 50, 0.30);
+      background: #f4fbf6;
+      color: var(--dod-green-dark);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .view-positions-btn:hover {
+      background: var(--dod-green);
+      color: #fff;
+    }
+
+    .vacancy-panel {
+      display: none;
+      border-top: 1px solid rgba(15, 81, 50, 0.12);
+      background: #ffffff;
+    }
+
+    .vacancy-panel.open {
+      display: block;
+    }
+
+    .vacancy-table {
+      width: 100%;
+      margin: 0;
+      border-collapse: collapse;
+    }
+
+    .vacancy-table th,
+    .vacancy-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(15, 81, 50, 0.10);
+      vertical-align: middle;
+      font-size: 0.92rem;
+    }
+
+    .vacancy-table th {
+      background: #f1f7f4;
+      color: var(--dod-green);
+      font-weight: 850;
+    }
+
+    .select-vacancy-btn {
+      border: 0;
+      background: var(--dod-green);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 0.65rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .select-vacancy-btn:hover {
+      background: #0b3f27;
+    }
+
+    .select-vacancy-btn.selected {
+      background: var(--dod-gold);
+      color: #102019;
+    }
+
+    .selected-vacancy-box {
+      display: none;
+      background: #d8ecdf;
+      border-left: 5px solid var(--dod-green);
+      color: var(--dod-green-dark);
+      padding: 14px 18px;
+      border-radius: 0.85rem;
+      margin-bottom: 22px;
+      font-weight: 650;
+    }
+
+    .selected-vacancy-box.show {
+      display: block;
+    }
+
+    .selected-vacancy-box strong {
+      color: var(--dod-green);
+    }
+
+    .auto-fill-note {
+      display: none;
+      background: #d8ecdf;
+      border-left: 5px solid var(--dod-green);
+      color: var(--dod-green-dark);
+      padding: 12px 16px;
+      border-radius: 0.75rem;
+      margin-bottom: 22px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .auto-fill-note.show {
+      display: block;
+    }
+
+    .actions {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .brand-banner {
+        flex-direction: column;
+        min-height: 160px;
+      }
+
+      .brand-logo {
+        width: 95px;
+        height: 95px;
+      }
+
+      .step-one-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .passport-photo-card {
+        position: static;
+        max-width: 260px;
+        margin: 0 auto 22px;
+      }
+
+      .form-row-custom {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .step-indicators {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .vacancy-search-row {
+        grid-template-columns: 1fr;
+      }
+
+      .vacancy-division-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .view-positions-btn,
+      .select-vacancy-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+  
+    .vacancy-selector-intro {
+      background: #fff;
+      border-left: 5px solid var(--dod-green);
+      color: var(--dod-green-dark);
+      padding: 14px 18px;
+      border-radius: 0.85rem;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 22px rgba(16, 32, 25, 0.05);
+    }
+
+    .vacancy-selector-intro h3 {
+      color: var(--dod-green);
+      font-size: 1.1rem;
+      font-weight: 850;
+      margin: 0 0 6px;
+    }
+
+    .vacancy-search-row {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .vacancy-division-card {
+      background: #eef8f2;
+      border: 1px solid rgba(15, 81, 50, 0.22);
+      border-radius: 1rem;
+      margin-bottom: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(16, 32, 25, 0.05);
+    }
+
+    .vacancy-division-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      background: #d8eadf;
+      border-left: 6px solid var(--dod-green);
+    }
+
+    .vacancy-division-header h3 {
+      margin: 0 0 4px;
+      color: var(--dod-green-dark);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .vacancy-division-header p {
+      margin: 0;
+      color: #405448;
+      font-size: 0.9rem;
+    }
+
+    .view-positions-btn {
+      border: 1px solid rgba(15, 81, 50, 0.30);
+      background: #f4fbf6;
+      color: var(--dod-green-dark);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .view-positions-btn:hover {
+      background: var(--dod-green);
+      color: #fff;
+    }
+
+    .vacancy-panel {
+      display: none;
+      border-top: 1px solid rgba(15, 81, 50, 0.12);
+      background: #ffffff;
+    }
+
+    .vacancy-panel.open {
+      display: block;
+    }
+
+    .vacancy-table {
+      width: 100%;
+      margin: 0;
+      border-collapse: collapse;
+    }
+
+    .vacancy-table th,
+    .vacancy-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(15, 81, 50, 0.10);
+      vertical-align: middle;
+      font-size: 0.92rem;
+    }
+
+    .vacancy-table th {
+      background: #f1f7f4;
+      color: var(--dod-green);
+      font-weight: 850;
+    }
+
+    .select-vacancy-btn {
+      border: 0;
+      background: var(--dod-green);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 0.65rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .select-vacancy-btn:hover {
+      background: #0b3f27;
+    }
+
+    .select-vacancy-btn.selected {
+      background: var(--dod-gold);
+      color: #102019;
+    }
+
+    .selected-vacancy-box {
+      display: none;
+      background: #d8ecdf;
+      border-left: 5px solid var(--dod-green);
+      color: var(--dod-green-dark);
+      padding: 14px 18px;
+      border-radius: 0.85rem;
+      margin-bottom: 22px;
+      font-weight: 650;
+    }
+
+    .selected-vacancy-box.show {
+      display: block;
+    }
+
+    .selected-vacancy-box strong {
+      color: var(--dod-green);
+    }
+
+    .auto-fill-note {
+      display: none;
+      background: #d8ecdf;
+      border-left: 5px solid var(--dod-green);
+      color: var(--dod-green-dark);
+      padding: 12px 16px;
+      border-radius: 0.75rem;
+      margin-bottom: 22px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .auto-fill-note.show {
+      display: block;
+    }
+
+    .actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+      }
+
+      .actions > div {
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-form {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-shell">
+    <header class="form-header">
+      <div class="brand-banner">
+        <img src="logo.png" alt="Papua New Guinea Emblem" class="brand-logo">
+        <h1 class="brand-title">DEPARTMENT OF DEFENCE</h1>
+      </div>
+
+      <h2 class="form-title">POSITION VACANCIES APPLICATION FORM</h2>
+      <p class="form-subtitle">
+        Please complete this form to apply for the advertised positions. Ensure all information is accurate and documents are uploaded before submission. Only shortlisted candidates will be contacted.
+      </p>
+    </header>
+
+    <div class="progress-wrap">
+      <div class="progress-label-row">
+        <span id="progressStepText">Step 1 of 5</span>
+        <span id="progressPercentText">20% Complete</span>
+      </div>
+
+      <div class="progress-track" aria-label="Application progress">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+
+      <div class="step-indicators">
+        <div id="stepPill1" class="step-pill active">1. Select Vacancy</div>
+        <div id="stepPill2" class="step-pill">2. Instructions</div>
+        <div id="stepPill3" class="step-pill">3. Personal Details</div>
+        <div id="stepPill4" class="step-pill">4. Position & Documents</div>
+        <div id="stepPill5" class="step-pill">5. Review & Submit</div>
+      </div>
+    </div>
+
+    <main class="form-body">
+      <form id="vacancyForm" action="#" method="post" enctype="multipart/form-data" novalidate>
+
+        <!-- STEP 1: SELECT VACANCY -->
+        <section class="form-step active" data-step="1">
+          <div class="form-section">
+            <div class="vacancy-selector-intro">
+              <h3><i class="bi bi-briefcase-fill me-2"></i>Select Vacant Position by Division</h3>
+              <p class="mb-0">First choose the <strong>Position Category / Division</strong>. Then click <strong>View Positions</strong> and click <strong>Select</strong> beside the position you want to apply for. The Position Title and Reference Number will be filled automatically from the official 266-position vacancy register.</p>
+            </div>
+
+
+            <div class="form-row-custom">
+              <label for="division">Position Category / Division <span class="required">*</span></label>
+              <select id="division" name="division_branch" class="form-select" required>
+                                <option value="">Please Select</option>
+                <option>Executive Division</option>
+                <option>Information Communication Technology</option>
+                <option>Stratergic Policy Research &amp; Development</option>
+                <option>Capability Acquisition &amp; Sustainability Division</option>
+                <option>Agencies Programing &amp; Monitoring Divison</option>
+                <option>Human Resources Management Division</option>
+                <option>Financial Management Division</option>
+                <option>Assets &amp; Services Division</option>
+                <option>Directorate of Nursing Services</option>
+              </select>
+            </div>
+
+            <div id="selectedVacancyBox" class="selected-vacancy-box"></div>
+            <input type="hidden" id="selectedVacancyConfirm" name="selected_vacancy_confirm" required>
+            <input type="hidden" id="divisionAlias" name="division" value="">
+            <input type="hidden" id="divisionBranchAlias" name="divisionBranch" value="">
+            <input type="hidden" id="positionCategoryDivisionAlias" name="positionCategoryDivision" value="">
+            <input type="hidden" id="positionTitleAlias" name="positionTitle" value="">
+            <input type="hidden" id="designationAlias" name="designation" value="">
+            <input type="hidden" id="referenceNumberAlias" name="referenceNumber" value="">
+            <input type="hidden" id="positionReferenceNumberAlias" name="positionReferenceNumber" value="">
+
+            <div class="vacancy-search-row">
+              <input type="search" id="vacancySearchInput" class="form-control" placeholder="Search position title or reference number...">
+              <button type="button" id="clearVacancySearchBtn" class="btn-form btn-back">Clear Search</button>
+            </div>
+
+            <div id="vacancyDivisionList"></div>
+          </div>
+        </section>
+
+        <!-- STEP 2: INSTRUCTIONS -->
+        <section class="form-step" data-step="2">
+          <div class="form-section">
+            <div class="instructions-box">
+              <h3><i class="bi bi-info-circle-fill me-2"></i>Applicant Instructions</h3>
+
+              <ul>
+                <li><strong>Closing Date:</strong> Submit your application before the advertised due date. Late applications may not be accepted.</li>
+                <li><strong>Position Details:</strong> Select the division and vacant position in Step 1. The Position Title and Reference Number will auto-fill automatically.</li>
+                <li><strong>Passport Size ID:</strong> Upload a clear recent passport-size photo in JPG or PNG format.</li>
+                <li><strong>CV File Name:</strong> Name your CV as <strong>Surname_FirstName_CV.pdf</strong>. Example: <strong>Kuyama_Paul_CV.pdf</strong>.</li>
+                <li><strong>Qualification File Name:</strong> Combine all certificates into one PDF and name it <strong>Surname_FirstName_Qualifications.pdf</strong>.</li>
+                <li><strong>Training Certificates:</strong> Combine training or award certificates into one PDF where possible.</li>
+                <li><strong>Document Format:</strong> Upload documents in PDF format unless otherwise stated.</li>
+                <li><strong>Accuracy:</strong> Ensure all information is correct before submission. Only shortlisted applicants will be contacted.</li>
+              </ul>
+
+              <div class="form-check mt-4">
+                <input class="form-check-input" type="checkbox" id="instructionsConfirm" name="instructions_confirm" required>
+                <label class="form-check-label fw-bold" for="instructionsConfirm">
+                  I have read and understood the application instructions.
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 3: PERSONAL DETAILS -->
+        <section class="form-step" data-step="3">
+          <div class="form-section">
+            <div class="step-one-layout">
+              <div class="step-one-main">
+                <div class="two-col">
+                  <div>
+                    <label for="firstName" class="form-label">First Name <span class="required">*</span></label>
+                    <input type="text" id="firstName" name="first_name" class="form-control" required>
+                  </div>
+
+                  <div>
+                    <label for="lastName" class="form-label">Last Name <span class="required">*</span></label>
+                    <input type="text" id="lastName" name="last_name" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="form-row-custom">
+                  <label>Gender <span class="required">*</span></label>
+                  <div class="gender-options">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+                      <label class="form-check-label" for="male">Male</label>
+                    </div>
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gender" id="female" value="Female" required>
+                      <label class="form-check-label" for="female">Female</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row-custom">
+                  <label for="dob">Date of Birth <span class="required">*</span></label>
+                  <input type="date" id="dob" name="date_of_birth" class="form-control" required>
+                </div>
+
+                <div class="form-row-custom">
+                  <label for="phone">Phone Number <span class="required">*</span></label>
+                  <input type="tel" id="phone" name="phone" class="form-control" placeholder="(+675) 000 000 00" required>
+                </div>
+
+                <div class="form-row-custom">
+                  <label for="email">Email <span class="required">*</span></label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Enter valid email address" required>
+                </div>
+
+                <div class="form-row-custom">
+                  <label for="address">Address <span class="required">*</span></label>
+                  <input type="text" id="address" name="address" class="form-control" placeholder="Postal address" required>
+                </div>
+
+              </div>
+
+              <aside class="passport-photo-card">
+                <div class="passport-photo-title">Passport Size ID Photo</div>
+
+                <label class="passport-photo-box" for="passportPhoto">
+                  <input type="file" id="passportPhoto" name="passport_photo" accept="image/png, image/jpeg">
+                  <img id="passportPreview" class="passport-photo-preview" alt="Passport photo preview">
+                  <div id="passportPlaceholder" class="passport-photo-placeholder">
+                    <i class="bi bi-person-bounding-box"></i>
+                    Click to upload<br>
+                    JPG or PNG
+                  </div>
+                </label>
+
+                <div class="photo-note">
+                  Upload a recent clear passport-size photo. Recommended file name:
+                  <strong>Surname_FirstName_Photo.jpg</strong>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- STEP 4: POSITION AND DOCUMENTS -->
+        <section class="form-step" data-step="4">
+          <div class="form-section">
+
+            <div id="autoFillNote" class="auto-fill-note">
+              <i class="bi bi-check-circle-fill me-2"></i>
+              Vacancy details were automatically filled from your selected position.
+            </div>
+
+            <div class="form-row-custom">
+              <label for="positionTitle">Position Title <span class="required">*</span></label>
+              <input type="text" id="positionTitle" name="position_title" class="form-control" placeholder="Example: ICT Support Officer" required>
+            </div>
+
+            <div class="form-row-custom">
+              <label for="positionRef">Reference Number <span class="required">*</span></label>
+              <input type="text" id="positionRef" name="reference_number" class="form-control" placeholder="Example: DEX. 001" required>
+            </div>
+
+            <div class="form-row-custom">
+              <label for="qualification">Highest Qualification <span class="required">*</span></label>
+              <select id="qualification" name="highest_qualification" class="form-select" required>
+                <option value="">Please Select</option>
+                <option>Grade 10 Certificate</option>
+                <option>Grade 12 Certificate</option>
+                <option>Certificate</option>
+                <option>Diploma</option>
+                <option>Bachelor Degree</option>
+                <option>Postgraduate Diploma</option>
+                <option>Master Degree</option>
+                <option>PhD</option>
+              </select>
+            </div>
+
+            <div class="form-row-custom">
+              <label for="fieldStudy">Field of Study <span class="required">*</span></label>
+              <input type="text" id="fieldStudy" name="field_of_study" class="form-control" required>
+            </div>
+
+            <div class="form-row-custom">
+              <label for="qualificationObtained">Qualification Obtained <span class="required">*</span></label>
+              <input type="text" id="qualificationObtained" name="qualification_obtained" class="form-control" placeholder="Year Graduated" required>
+            </div>
+
+            <div class="form-row-custom">
+              <label for="institution">Name of Institution <span class="required">*</span></label>
+              <input type="text" id="institution" name="institution" class="form-control" placeholder="Last Attended" required>
+            </div>
+
+            <div class="form-row-custom">
+              <label for="workExperience">Years of Work Experience <span class="required">*</span></label>
+              <input type="number" id="workExperience" name="years_work_experience" class="form-control" placeholder="1, 3, 5" min="0" required>
+            </div>
+
+            <div class="form-row-custom">
+              <label for="relevantExperience">Years of Relevant Experience <span class="required">*</span></label>
+              <input type="number" id="relevantExperience" name="years_relevant_experience" class="form-control" placeholder="1, 3, 5" min="0" required>
+            </div>
+
+            <div class="form-row-custom">
+              <label for="trainingAttended">No. of Training Attended</label>
+              <select id="trainingAttended" name="training_attended" class="form-select">
+                <option value="">Please Select</option>
+                <option>None</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4 or more</option>
+              </select>
+            </div>
+
+            <div class="form-row-custom">
+              <label for="trainingYear">Training Year</label>
+              <input type="text" id="trainingYear" name="training_year" class="form-control" placeholder="Last attended">
+            </div>
+
+            <div class="form-row-custom">
+              <label for="references">Number of Reference <span class="required">*</span></label>
+              <select id="references" name="number_of_references" class="form-select" required>
+                <option value="">Please Select</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4 or more</option>
+              </select>
+            </div>
+
+            <div class="form-row-custom">
+              <label for="qualificationMatch">Does your Qualification match the Position <span class="required">*</span></label>
+              <select id="qualificationMatch" name="qualification_match_position" class="form-select" required>
+                <option value="">Please Select</option>
+                <option>Yes</option>
+                <option>No</option>
+                <option>Partially</option>
+              </select>
+            </div>
+
+            <div class="form-row-custom align-items-start">
+              <label for="trainingCertificate">Training/Award Certificate Upload</label>
+              <div>
+                <label class="upload-box" for="trainingCertificate">
+                  <input type="file" id="trainingCertificate" name="training_certificate" accept="application/pdf">
+                  <div>
+                    <div class="upload-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
+                    <div class="upload-title">Browse Files</div>
+                    <div class="upload-hint">Drag and drop files here</div>
+                  </div>
+                </label>
+                <div class="file-note">Upload your Training/Award Certificates in a single PDF file format.</div>
+                <div class="selected-file" data-file-name="trainingCertificate"></div>
+              </div>
+            </div>
+
+            <div class="form-row-custom align-items-start">
+              <label for="qualificationCertificate">Qualification Certificate Upload <span class="required">*</span></label>
+              <div>
+                <label class="upload-box" for="qualificationCertificate">
+                  <input type="file" id="qualificationCertificate" name="qualification_certificate" accept="application/pdf" required>
+                  <div>
+                    <div class="upload-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
+                    <div class="upload-title">Browse Files</div>
+                    <div class="upload-hint">Drag and drop files here</div>
+                  </div>
+                </label>
+                <div class="file-note">Upload your Academic Certificates in a single PDF file format.</div>
+                <div class="selected-file" data-file-name="qualificationCertificate"></div>
+              </div>
+            </div>
+
+            <div class="form-row-custom align-items-start">
+              <label for="cvUpload">Upload CV <span class="required">*</span></label>
+              <div>
+                <label class="upload-box" for="cvUpload">
+                  <input type="file" id="cvUpload" name="cv" accept="application/pdf" required>
+                  <div>
+                    <div class="upload-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
+                    <div class="upload-title">Browse Files</div>
+                    <div class="upload-hint">Drag and drop files here</div>
+                  </div>
+                </label>
+                <div class="file-note">Upload your CV in a single PDF file format.</div>
+                <div class="selected-file" data-file-name="cvUpload"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 5: REVIEW -->
+        <section class="form-step" data-step="5">
+          <div class="form-section">
+            <div class="review-box">
+              <h3 class="h5 fw-bold mb-2">Review Your Application</h3>
+              <p class="text-secondary mb-0">
+                Please check your details carefully before submitting. Click Back to make changes.
+              </p>
+
+              <div class="review-grid" id="reviewGrid">
+                <div class="review-item">
+                  <div class="review-label">First Name</div>
+                  <div class="review-value" id="reviewFirstName">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Last Name</div>
+                  <div class="review-value" id="reviewLastName">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Gender</div>
+                  <div class="review-value" id="reviewGender">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Date of Birth</div>
+                  <div class="review-value" id="reviewDob">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Phone</div>
+                  <div class="review-value" id="reviewPhone">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Email</div>
+                  <div class="review-value" id="reviewEmail">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Address</div>
+                  <div class="review-value" id="reviewAddress">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Division / Branch</div>
+                  <div class="review-value" id="reviewDivision">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Position Title</div>
+                  <div class="review-value" id="reviewPositionTitle">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Reference Number</div>
+                  <div class="review-value" id="reviewPositionRef">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Highest Qualification</div>
+                  <div class="review-value" id="reviewQualification">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Field of Study</div>
+                  <div class="review-value" id="reviewFieldStudy">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Qualification Obtained</div>
+                  <div class="review-value" id="reviewQualificationObtained">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Institution</div>
+                  <div class="review-value" id="reviewInstitution">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Work Experience</div>
+                  <div class="review-value" id="reviewWorkExperience">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Relevant Experience</div>
+                  <div class="review-value" id="reviewRelevantExperience">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">References</div>
+                  <div class="review-value" id="reviewReferences">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Qualification Match</div>
+                  <div class="review-value" id="reviewQualificationMatch">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Training Certificate</div>
+                  <div class="review-value" id="reviewTrainingCertificate">Not uploaded</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Qualification Certificate</div>
+                  <div class="review-value" id="reviewQualificationCertificate">Not uploaded</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">CV</div>
+                  <div class="review-value" id="reviewCv">Not uploaded</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Passport Photo</div>
+                  <div class="review-value" id="reviewPassportPhoto">Not uploaded</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="actions">
+          <button type="button" id="exitBtn" class="btn-form btn-exit">Exit</button>
+
+          <div class="ms-auto d-flex gap-3">
+            <button type="button" id="backBtn" class="btn-form btn-back" style="display: none;">Back</button>
+            <button type="button" id="nextBtn" class="btn-form btn-next">Next</button>
+            <button type="submit" id="submitBtn" class="btn-form btn-submit" style="display: none;">Submit</button>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Paste your Google Apps Script Web App URL below. It must end with /exec.
+      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwP1GOzSJwqvuNCAUtOJyFrE_AHsGLKYNAs3L71YssTQif7uXHy_I_kC8Pz1C5Vfq4/exec";
+
+      const VACANCIES_BY_DIVISION = {
+        "Executive Division": [
+                {
+                        "title": "Senior Executive Assistant Reference: DEX. 003",
+                        "number": "105DOD0002",
+                        "account": "105DODEXE000000000",
+                        "class": "PS13"
+                },
+                {
+                        "title": "Senior Policy Advisor Reference: DEX. 005",
+                        "number": "105DOD0307",
+                        "account": "105DODEXE000000000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Driver- Office of the Secretary Reference: DEX. 007",
+                        "number": "105DOD0399",
+                        "account": "105DODEXE000000000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Deputy Secretary - Policy Wing Reference: DEX. 008",
+                        "number": "105DOD0377",
+                        "account": "105DODEXE000000000",
+                        "class": "PS19"
+                },
+                {
+                        "title": "Driver - Policy Wing Reference: DEX. 011",
+                        "number": "105DOD0008",
+                        "account": "105DODEXE000000000",
+                        "class": "PS09"
+                },
+                {
+                        "title": "Deputy Secretary -Corporate Services Wing Reference: DEX. 012",
+                        "number": "105DOD0005",
+                        "account": "105DODEXE000000000",
+                        "class": "PS19"
+                },
+                {
+                        "title": "Executive Assistant - Corp Services Reference: DEX. 013",
+                        "number": "105DOD0006",
+                        "account": "105DODEXE000000000",
+                        "class": "PS11"
+                },
+                {
+                        "title": "Internal Auditor Reference: DEX. 019",
+                        "number": "105DOD0014",
+                        "account": "105DODEXEAUD000000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Assistant Internal Auditor Reference: DEX. 020",
+                        "number": "105DOD0015",
+                        "account": "105DODEXEAUD000000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Assistant Internal Auditor Reference: DEX. 021",
+                        "number": "105DOD0016",
+                        "account": "105DODEXEAUD000000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Senior Legal Officer Reference: DEX. 023",
+                        "number": "105DOD0020",
+                        "account": "105DODEXELEG000000",
+                        "class": "PS17"
+                },
+                {
+                        "title": "Manager - Public Relations Reference: DEX. 026",
+                        "number": "105DOD0022",
+                        "account": "105DODCPR000000000",
+                        "class": "PS15"
+                },
+                {
+                        "title": "Contract Management Officer Reference: DEX. 033",
+                        "number": "105DOD0101",
+                        "account": "105DODEXECSP000000",
+                        "class": "PS12"
+                }
+        ],
+        "Information Communication Technology": [
+                {
+                        "title": "First Assistant Secretary - ICT Reference: DICT. 001",
+                        "number": "105DOD0024",
+                        "account": "105DODEXEICT000000",
+                        "class": "PS18"
+                },
+                {
+                        "title": "Driver - ICT Reference: DICT. 003",
+                        "number": "105DOD0303",
+                        "account": "105DODEXEICT000000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Assistant Secretary - Information Management Reference: DICT. 004",
+                        "number": "105DOD0025",
+                        "account": "105DODEXEICT000000",
+                        "class": "PS16"
+                },
+                {
+                        "title": "Information Support Assistant Reference: DICT. 006",
+                        "number": "105DOD0026",
+                        "account": "105DODEADAIC000000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Network Infrastructure Assistant Reference: DICT. 013",
+                        "number": "105DOD0315",
+                        "account": "105DODEXEICT000000",
+                        "class": "PS12"
+                }
+        ],
+        "Stratergic Policy Research & Development": [
+                {
+                        "title": "First Assistant Secretary - Strategic Poliucy Research & Development Reference: DSPRD. 001",
+                        "number": "105DOD0029",
+                        "account": "105DODPOLSPR000000",
+                        "class": "PS18"
+                },
+                {
+                        "title": "Assistant Secretary - Policy Research & Development Reference: DSPRD. 004",
+                        "number": "105DOD0068",
+                        "account": "105DODPOLSPRPRD000",
+                        "class": "PS16"
+                },
+                {
+                        "title": "Policy Research Officer Reference: DSPRD. 007",
+                        "number": "105DOD0044",
+                        "account": "105DODPOLSPRPRD000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Desk Officer - NZ/ Pacific Reference: DSPRD. 010",
+                        "number": "105DOD0052",
+                        "account": "105DODPOLSPRINT000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Desk Officer - Asia Reference: DSPRD. 011",
+                        "number": "105DOD0053",
+                        "account": "105DODPOLSPRINT000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Desk Officer - Europe/ Asia & Others Reference: DSPRD. 012",
+                        "number": "105DOD0058",
+                        "account": "105DODPOLSPRINT000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Assistant Secretary - International Treaties & Agreements Reference: DSPRD. 014",
+                        "number": "105DOD0410",
+                        "account": "105DODPOLSPRTRE000",
+                        "class": "PS16"
+                },
+                {
+                        "title": "International Treaties & Agreement Officer - Australia Reference: DSPRD. 015",
+                        "number": "105DOD0037",
+                        "account": "105DODPOLSPRTRE000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "International Treaties & Agreement Officer - Indonesia Reference: DSPRD. 016",
+                        "number": "105DOD0057",
+                        "account": "105DODPOLSPRTRE000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "International Treaties & Agreement Officer - USA Reference: DSPRD. 017",
+                        "number": "105DOD0059",
+                        "account": "105DODPOLSPRTRE000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Assistant Desk Officer - USA, AUS, INDO Reference: DSPRD. 018",
+                        "number": "105DOD0067",
+                        "account": "105DODPOLSPRTRE000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Assistant Desk Officer - Europe, Asia, Oceania Reference: DSPRD. 019",
+                        "number": "105DOD0080",
+                        "account": "105DODPOLSPRTRE000",
+                        "class": "PS12"
+                }
+        ],
+        "Capability Acquisition & Sustainability Division": [
+                {
+                        "title": "Assistant Secretary - Capability Acquisition Reference: DCAS. 004",
+                        "number": "105DOD0069",
+                        "account": "105DODPOLCASCAS000",
+                        "class": "PS16"
+                },
+                {
+                        "title": "Senior Capability Acquisition Officer Reference: DCAS. 005",
+                        "number": "105DOD0128",
+                        "account": "105DODPOLCASCAS000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Capability Acquisition Officer Reference: DCAS. 008",
+                        "number": "105DOD0063",
+                        "account": "105DODPOLCASCAS000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Assistant Secretary - Contract Management Reference: DCAS. 011",
+                        "number": "105DOD0077",
+                        "account": "105DODPOLCASCMG000",
+                        "class": "PS16"
+                },
+                {
+                        "title": "Senior Contract Officer Reference: DCAS. 012",
+                        "number": "105DOD0018",
+                        "account": "105DODPOLCASCMG000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Contract Officer Reference: DCAS. 013",
+                        "number": "105DOD0019",
+                        "account": "105DODPOLCASCMG000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Contract Officer Reference: DCAS. 014",
+                        "number": "105DOD0092",
+                        "account": "105DODPOLCASCMG000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Contract Officer Reference: DCAS. 015",
+                        "number": "105DOD0103",
+                        "account": "105DODPOLCASCMG000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Central Registry Officer Reference: DCAS. 017",
+                        "number": "105DOD0309",
+                        "account": "105DODPOLCASCMG000",
+                        "class": "PS12"
+                }
+        ],
+        "Agencies Programing & Monitoring Divison": [
+                {
+                        "title": "Executive Assistant Reference: DAPM. 002",
+                        "number": "105DOD0084",
+                        "account": "105DODPOLAPI000000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Driver Reference: DAPM. 003",
+                        "number": "105DOD0248",
+                        "account": "105DODPOLAPI000000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Assistant Secretary - Agency Programming Reference: DAPM. 004",
+                        "number": "105DOD0379",
+                        "account": "105DODFOPDCAAAAAPI",
+                        "class": "PS16"
+                },
+                {
+                        "title": "Desk Officer - National Fire Service Reference: DAPM. 005",
+                        "number": "105DOD0085",
+                        "account": "105DODFOPDCAAAAAPI",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Desk Officer - National Disaster Service Reference: DAPM. 006",
+                        "number": "105DOD0086",
+                        "account": "105DODFOPDCAAAAAPI",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Assistant Secretary - Monitoring/White Paper Reference: DAPM. 008",
+                        "number": "105DOD0038",
+                        "account": "105DODPOLAPIMON000",
+                        "class": "PS16"
+                }
+        ],
+        "Human Resources Management Division": [
+                {
+                        "title": "First Assistant Secretary - HRM Reference: DHRM. 001",
+                        "number": "105DOD0200",
+                        "account": "105DODCSDHRM000000",
+                        "class": "PS18"
+                },
+                {
+                        "title": "Executive Assistant Reference: DHRM. 002",
+                        "number": "105DOD0070",
+                        "account": "105DODCSDHRM000000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Industrial Relationsl Officer Reference: DHRM. 003",
+                        "number": "105DOD0202",
+                        "account": "105DODCSDHRM000000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "GESI Officer Reference: DHRM. 006",
+                        "number": "105DOD0035",
+                        "account": "105DODCSDHRM000000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Senior Staff Development & Training Officer Reference: DHRM. 010",
+                        "number": "105DOD0211",
+                        "account": "105DODCSDHRMTRN000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Staff Development Officer Reference: DHRM. 011",
+                        "number": "105DOD0212",
+                        "account": "105DODCSDHRMTRN000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Training Officer Reference: DHRM. 012",
+                        "number": "105DOD0032",
+                        "account": "105DODCSDHRMTRN000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Assistant Secretary - Payroll Administration Reference: DHRM. 013",
+                        "number": "105DOD0391",
+                        "account": "105DODCSDHRMPAY000",
+                        "class": "PS16"
+                },
+                {
+                        "title": "Senior Staff & Salaries Officer Reference: DHRM. 015",
+                        "number": "105DOD0214",
+                        "account": "105DODCSDHRMPAYCIV",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Staff & Salaries Officer Reference: DHRM. 016",
+                        "number": "105DOD0041",
+                        "account": "105DODCSDHRMPAYCIV",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Team Leader - Service Personnel Reference: DHRM. 021",
+                        "number": "105DOD0220",
+                        "account": "105DODCSDHRMPAYPER",
+                        "class": "PS14"
+                }
+        ],
+        "Financial Management Division": [
+                {
+                        "title": "Executive Assistant Reference: DFM. 002",
+                        "number": "105DOD0177",
+                        "account": "105DODCSDFIN000000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Assistant Secretary - Budgets Estimates & Programming Reference: DFM. 004",
+                        "number": "105DOD0047",
+                        "account": "105DODCSDFINBEP000",
+                        "class": "PS16"
+                },
+                {
+                        "title": "Budget Officer - Programming Reference: DFM. 008",
+                        "number": "105DOD0183",
+                        "account": "105DODCSDFINBEP000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Assistant Budget Officer Reference: DFM. 009",
+                        "number": "105DOD0184",
+                        "account": "105DODCSDFINBEP000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Assistant Secretary - Accounts Reference: DFM. 010",
+                        "number": "105DOD0185",
+                        "account": "105DODCSDFINACC000",
+                        "class": "PS16"
+                },
+                {
+                        "title": "Accountant - Class 5 Reference: DFM. 011",
+                        "number": "105DOD0186",
+                        "account": "105DODCSDFINACC000",
+                        "class": "PS15"
+                },
+                {
+                        "title": "Finance Inspector Reference: DFM. 012",
+                        "number": "105DOD0181",
+                        "account": "105DODCSDFINACC000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Assistant Abstract Clerk Reference: DFM. 017",
+                        "number": "105DOD0320",
+                        "account": "105DODCSDFINACC000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Claims Examiner Reference: DFM. 020",
+                        "number": "105DOD0189",
+                        "account": "105DODCSDFINACC000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Commitment Clerk Reference: DFM. 024",
+                        "number": "105DOD0193",
+                        "account": "105DODCSDFINACC000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Area Finance Officer - Moem Reference: DFM. 031",
+                        "number": "105DOD0110",
+                        "account": "105DODCSDFINARE000",
+                        "class": "PS13"
+                },
+                {
+                        "title": "Area Finance Officer - HMSPNG Tarangau Reference: DFM. 033",
+                        "number": "105DOD0112",
+                        "account": "105DODCSDFINARE000",
+                        "class": "PS13"
+                },
+                {
+                        "title": "Area Finance Officer - Hela Reference: DFM. 035",
+                        "number": "105DOD0119",
+                        "account": "105DODCSDFINARE000",
+                        "class": "PS13"
+                }
+        ],
+        "Assets & Services Division": [
+                {
+                        "title": "First Assistant Secretary - Assets & Services Reference: DAS .001",
+                        "number": "105DOD0056",
+                        "account": "105DODCSDAST000000",
+                        "class": "PS18"
+                },
+                {
+                        "title": "Executive Assistant Reference: DAS .002",
+                        "number": "105DOD0095",
+                        "account": "105DODCSDAST000000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Driver Reference: DAS .003",
+                        "number": "105DOD0203",
+                        "account": "105DODCSDAST000000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Assistant Secretary - Cataloguing Assets & Information Reference: DAS. 004",
+                        "number": "105DOD0121",
+                        "account": "105DODCSDASTCAT000",
+                        "class": "PS16"
+                },
+                {
+                        "title": "Team Leader - Cataloguing Reference: DAS. 005",
+                        "number": "105DOD0122",
+                        "account": "105DODCSDASTCAT000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Cataloguer - Plan & Procurement Reference: DAS. 007",
+                        "number": "105DOD0124",
+                        "account": "105DODCSDASTCAT000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Cataloguer - Field Project & Training Reference: DAS. 008",
+                        "number": "105DOD0125",
+                        "account": "105DODCSDASTCAT000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Team Leader - Assets Reference: DAS.009",
+                        "number": "105DOD0380",
+                        "account": "105DODCSDASTAMG000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Assets Officer Reference: DAS. 011",
+                        "number": "105DOD0126",
+                        "account": "105DODCSDASTAMG000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Foreman Artisian Reference: DAS. 012",
+                        "number": "105DOD0130",
+                        "account": "105DODCSDASTAMG000",
+                        "class": "PS11"
+                },
+                {
+                        "title": "Artisian Reference: DAS. 013",
+                        "number": "105DOD0131",
+                        "account": "105DODCSDASTAMG000",
+                        "class": "PS09"
+                },
+                {
+                        "title": "Senior Procument Officer Reference: DAS. 014",
+                        "number": "105DOD0132",
+                        "account": "105DODCSDASTAMG000",
+                        "class": "PS14"
+                },
+                {
+                        "title": "Procument Officer Reference: DAS. 015",
+                        "number": "105DOD0133",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Team Leader - Area Administration Reference: DAS.017",
+                        "number": "105DOD0031",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Mail Services Clerk Reference: DAS.018",
+                        "number": "105DOD0054",
+                        "account": "105DODFOPDCABAA000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Librarian Grade 5 - Head Quaters Reference: DAS.019",
+                        "number": "105DOD0055",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Executive Assistant - Chief of Defence Force Reference: DAS.020",
+                        "number": "105DOD0201",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Executive Assistant - Deputy Chief of Defence Force Reference: DAS.021",
+                        "number": "105DOD0412",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS11"
+                },
+                {
+                        "title": "Executive Assistant - Support Commander Reference: DAS.023",
+                        "number": "105DOD0134",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Executive Assistant - Chief of Personnel Reference: DAS.025",
+                        "number": "105DOD0230",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS11"
+                },
+                {
+                        "title": "Office Attendant - Commanders Block Reference: DAS.026",
+                        "number": "105DOD0231",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - Personnel Reference: DAS.027",
+                        "number": "105DOD0232",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - Operations Reference: DAS.028",
+                        "number": "105DOD0246",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - Support Command Reference: DAS.029",
+                        "number": "105DOD0301",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - Audit/SPCM/DTS Reference: DAS.030",
+                        "number": "105DOD0034",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - Policy/Corporate Affairs Reference: DAS.031",
+                        "number": "105DOD0065",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - DCAA Block Reference: DAS.032",
+                        "number": "105DOD0076",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - Training Command Reference: DAS.033",
+                        "number": "105DOD0097",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - DENGRS/DWP Blocks Reference: DAS.034",
+                        "number": "105DOD0096",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - HRM Reference: DAS.035",
+                        "number": "105DOD0154",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - CSP Reference: DAS.036",
+                        "number": "105DOD0158",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - HMPNGS Basilisk Reference: DAS.037",
+                        "number": "105DOD0165",
+                        "account": "105DODCSDASTOFF000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Area  Manager - FSB HQ Reference: DAS.038",
+                        "number": "105DOD0105",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS15"
+                },
+                {
+                        "title": "Executive Assistant - CO FSB Reference: DAS.039",
+                        "number": "105DOD0234",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Office Attendant - Reserve Force Reference: DAS.040",
+                        "number": "105DOD0326",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - FSB Reference: DAS.041",
+                        "number": "105DOD0322",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Foreman General Cleaner Reference: DAS.042",
+                        "number": "105DOD0323",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS10"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.043",
+                        "number": "105DOD0324",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.044",
+                        "number": "105DOD0325",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.045",
+                        "number": "105DOD0343",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician Reference: DAS.046",
+                        "number": "105DOD0247",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician Reference: DAS.047",
+                        "number": "105DOD0413",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber Reference: DAS.048",
+                        "number": "105DOD0249",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber Reference: DAS.049",
+                        "number": "105DOD0414",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter Reference: DAS.050",
+                        "number": "105DOD0251",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter Reference: DAS.051",
+                        "number": "105DOD0415",
+                        "account": "105DODFOPDCABAAAFS",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Area Manager - Taurama Barracks 1RPIR Reference: DAS.052",
+                        "number": "105DOD0115",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS15"
+                },
+                {
+                        "title": "Executive Assistant - Commanding Officer Reference: DAS.053",
+                        "number": "105DOD0328",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Office Attendant - 1RPIR Reference: DAS.054",
+                        "number": "105DOD0327",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Attendant - HQ TBA Reference: DAS.055",
+                        "number": "105DOD0329",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - Alpha COY 1RPIR Reference: DAS.056",
+                        "number": "105DOD0335",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - Bravo COY 1RPIR Reference: DAS.057",
+                        "number": "105DOD0336",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - Charlie COY 1RPIR Reference: DAS.058",
+                        "number": "105DOD0337",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - Delta COY 1RPIR Reference: DAS.059",
+                        "number": "105DOD0338",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Foreman General Cleaner Reference: DAS.060",
+                        "number": "105DOD0330",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS10"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.061",
+                        "number": "105DOD0331",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.062",
+                        "number": "105DOD0332",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.063",
+                        "number": "105DOD0334",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician Reference: DAS.064",
+                        "number": "105DOD0253",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician Reference: DAS.065",
+                        "number": "105DOD0254",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisian Grade 5 - Plumber Reference: DAS.066",
+                        "number": "105DOD0255",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisian Grade 5 - Plumber Reference: DAS.067",
+                        "number": "105DOD0256",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter Reference: DAS.068",
+                        "number": "105DOD0257",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter Reference: DAS.069",
+                        "number": "105DOD0258",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Senior Sewerage Plant Operator Reference: DAS.070",
+                        "number": "105DOD0259",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Sewerage Plant Operator Reference: DAS.071",
+                        "number": "105DOD0260",
+                        "account": "105DODFOPDCABAAB1R",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Area Finance Manager - HMPNGS Basilik Base Reference: DAS.072",
+                        "number": "105DOD0114",
+                        "account": "105DODFOPDCABAACBA",
+                        "class": "PS15"
+                },
+                {
+                        "title": "Executive Assistant - CO HMPNGS Basilisk Base Reference: DAS.073",
+                        "number": "105DOD0236",
+                        "account": "105DODFOPDCABAACBA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Office Attendant - HMPNGS Basilisk Reference: DAS.074",
+                        "number": "105DOD0376",
+                        "account": "105DODFOPDCABAACBA",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Area Manager  - Air Transport Wing Reference: DAS.075",
+                        "number": "105DOD0120",
+                        "account": "105DODFOPDCABAADAK",
+                        "class": "PS15"
+                },
+                {
+                        "title": "Executive Assistant - CO Air Transport Wing Reference: DAS.076",
+                        "number": "105DOD0235",
+                        "account": "105DODFOPDCABAADAK",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Office Cleaner (ATW Hanger) Reference: DAS.077",
+                        "number": "105DOD0373",
+                        "account": "105DODFOPDCABAADAK",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner (CO ATW) Reference: DAS.078",
+                        "number": "105DOD0339",
+                        "account": "105DODFOPDCABAADAK",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.079",
+                        "number": "105DOD0374",
+                        "account": "105DODFOPDCABAADAK",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.080",
+                        "number": "105DOD0375",
+                        "account": "105DODFOPDCABAADAK",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician Reference: DAS.081",
+                        "number": "105DOD0276",
+                        "account": "105DODFOPDCABAADAK",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber Reference: DAS.082",
+                        "number": "105DOD0277",
+                        "account": "105DODFOPDCABAADAK",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisian Grade 5 - Carpenter/ Painter Reference: DAS.083",
+                        "number": "105DOD0283",
+                        "account": "105DODFOPDCABAADAK",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Area Manager - Goldie Reference: DAS.084",
+                        "number": "105DOD0117",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS15"
+                },
+                {
+                        "title": "Executive Assistant - CO Training Depot Reference: DAS.085",
+                        "number": "105DOD0238",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Librarian Grade 5 - Goldie Reference: DAS.086",
+                        "number": "105DOD0244",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Office Cleaner - HQ Goldie Reference: DAS.087",
+                        "number": "105DOD0345",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - CO Training Depot Reference: DAS.088",
+                        "number": "105DOD0346",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - Training Wing One Reference: DAS.089",
+                        "number": "105DOD0347",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - Training Wing Two Reference: DAS.090",
+                        "number": "105DOD0348",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Foreman General  Cleaner Reference: DAS.091",
+                        "number": "105DOD0340",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.092",
+                        "number": "105DOD0146",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.093",
+                        "number": "105DOD0341",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.094",
+                        "number": "105DOD0342",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician Reference: DAS.095",
+                        "number": "105DOD0261",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisian Grade 5 - Electrician Reference: DAS.096",
+                        "number": "105DOD0262",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber Reference: DAS.097",
+                        "number": "105DOD0263",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber Reference: DAS.098",
+                        "number": "105DOD0264",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter Reference: DAS.099",
+                        "number": "105DOD0265",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter Reference: DAS.100",
+                        "number": "105DOD0266",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Senior Water Plant Operator Reference: DAS.101",
+                        "number": "105DOD0267",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Water Plant Operator Reference: DAS.102",
+                        "number": "105DOD0268",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Water Plant Operator Reference: DAS.103",
+                        "number": "105DOD0269",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Water Plant Operator Reference: DAS.104",
+                        "number": "105DOD0270",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Water Plant Operator Reference: DAS.105",
+                        "number": "105DOD0271",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Water Plant Operator Reference: DAS.106",
+                        "number": "105DOD0272",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Senior Sewerage Plant Operator Reference: DAS.107",
+                        "number": "105DOD0273",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Sewage Plant Operator Reference: DAS.108",
+                        "number": "105DOD0274",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Sewerage Plant Operator Reference: DAS.109",
+                        "number": "105DOD0275",
+                        "account": "105DODFOPDCABAAEGO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Area Manager  - Moem Reference: DAS.110",
+                        "number": "105DOD0109",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS15"
+                },
+                {
+                        "title": "Executive Assistant - CO Moem Reference: DAS.111",
+                        "number": "105DOD0243",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Office Cleaner - BHQ 2RPIR Reference: DAS.112",
+                        "number": "105DOD0356",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - HQ Moem Reference: DAS.113",
+                        "number": "105DOD0357",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - Alpha COY 2RPIR Reference: DAS.114",
+                        "number": "105DOD0363",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - Bravo COY 2RPIR Reference: DAS.115",
+                        "number": "105DOD0364",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - Charlie COY 2RPIR Reference: DAS.116",
+                        "number": "105DOD0365",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Foreman General Cleaner Reference: DAS.117",
+                        "number": "105DOD0358",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.118",
+                        "number": "105DOD0359",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.119",
+                        "number": "105DOD0360",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.120",
+                        "number": "105DOD0361",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician Reference: DAS.121",
+                        "number": "105DOD0289",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician Reference: DAS.122",
+                        "number": "105DOD0416",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber Reference: DAS.123",
+                        "number": "105DOD0291",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber Reference: DAS.124",
+                        "number": "105DOD0292",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter Reference: DAS.125",
+                        "number": "105DOD0293",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisian Grade 5 - Carpenter/ Painter Reference: DAS.126",
+                        "number": "105DOD0294",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Sewage Plant Operator Reference: DAS.127",
+                        "number": "105DOD0297",
+                        "account": "105DODFOPDCABAAFMO",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Executive Assistant - CO Igam Reference: DAS.129",
+                        "number": "105DOD0239",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Executive Assistant - Commandant Defence Academy Reference: DAS.130",
+                        "number": "105DOD0240",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Executive Assistant - CO Engineering Batt Reference: DAS.131",
+                        "number": "105DOD0241",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Librarian Grade 5 Reference: DAS.132",
+                        "number": "105DOD0245",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Office Cleaner - HQ Igam Reference: DAS.133",
+                        "number": "105DOD0319",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - Defence Academy Reference: DAS.134",
+                        "number": "105DOD0354",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner - Engineering Batt Reference: DAS.135",
+                        "number": "105DOD0355",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Foreman General Cleaner Reference: DAS.136",
+                        "number": "105DOD0349",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.137",
+                        "number": "105DOD0350",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.138",
+                        "number": "105DOD0351",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.139",
+                        "number": "105DOD0352",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician Reference: DAS.140",
+                        "number": "105DOD0279",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisian Grade 5 - Electrician Reference: DAS.141",
+                        "number": "105DOD0280",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisian Grade 5 - Plumber Reference: DAS.142",
+                        "number": "105DOD0281",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisian Grade 5 - Plumber Reference: DAS.143",
+                        "number": "105DOD0282",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisian Grade 5 - Carpenter/ Painter Reference: DAS.144",
+                        "number": "105DOD0278",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisian Grade 5 - Carpenter/ Painter Reference: DAS.145",
+                        "number": "105DOD0284",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Senior Water Plant Operator Reference: DAS.146",
+                        "number": "105DOD0285",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Water Plant Operator Reference: DAS.147",
+                        "number": "105DOD0286",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Senior Sewage Plant Operator Reference: DAS.148",
+                        "number": "105DOD0287",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Sewerage Plant Operator Reference: DAS.149",
+                        "number": "105DOD0288",
+                        "account": "105DODFOPDCABAAGIG",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Executive Assistant - HMPNGS Tarangau Reference: DAS.151",
+                        "number": "105DOD0242",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Office Cleaner - CO HMPNGS Tarangau Reference: DAS.152",
+                        "number": "105DOD0366",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Foreman General Cleaner Reference: DAS.153",
+                        "number": "105DOD0367",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.154",
+                        "number": "105DOD0368",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.155",
+                        "number": "105DOD0369",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Artisian Grade 5 - Electrician Reference: DAS.156",
+                        "number": "105DOD0298",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician- Tarangau Reference: DAS.157",
+                        "number": "105DOD0417",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician- Tarangau Reference: DAS.158",
+                        "number": "105DOD0418",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber Reference: DAS.159",
+                        "number": "105DOD0299",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber- Tarangau Reference: DAS.160",
+                        "number": "105DOD0419",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber- Tarangau Reference: DAS.161",
+                        "number": "105DOD0420",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter Reference: DAS.162",
+                        "number": "105DOD0300",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter- Tarangau Reference: DAS.163",
+                        "number": "105DOD0421",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter- Tarangau Reference: DAS.164",
+                        "number": "105DOD0422",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Senior Water Plant Operator Reference: DAS.165",
+                        "number": "105DOD0304",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Senior Sewage Plant Operator Reference: DAS.166",
+                        "number": "105DOD0310",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "General Cleaner WIER1- Taranagu Reference: DAS.167",
+                        "number": "105DOD0423",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner WIER2- Taranagu Reference: DAS.168",
+                        "number": "105DOD0424",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Office Cleaner- Singirok/ Kerowil Barracks Reference: DAS.170",
+                        "number": "105DOD0372",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.171",
+                        "number": "105DOD0370",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.172",
+                        "number": "105DOD0371",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Artisian Grade 5 - Electrician Reference: DAS.173",
+                        "number": "105DOD0290",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber Reference: DAS.174",
+                        "number": "105DOD0295",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter Reference: DAS.175",
+                        "number": "105DOD0296",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Area Manager - Hela Reference: DAS.176",
+                        "number": "105DOD0314",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS15"
+                },
+                {
+                        "title": "Office Cleaner -Hela Barracks Reference: DAS.177",
+                        "number": "105DOD0078",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.178",
+                        "number": "105DOD0079",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "General Cleaner Reference: DAS.179",
+                        "number": "105DOD0344",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Artisan Grade 5 - Electrician Reference: DAS.180",
+                        "number": "105DOD0362",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Plumber Reference: DAS.181",
+                        "number": "105DOD0353",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Artisan Grade 5 - Carpenter/Painter Reference: DAS.182",
+                        "number": "105DOD0305",
+                        "account": "105DODFOPDCAAAA000",
+                        "class": "PS10"
+                }
+        ],
+        "Directorate of Nursing Services": [
+                {
+                        "title": "Director - Nursing Services Reference: DNS. 001",
+                        "number": "105DOD0385",
+                        "account": "105DODEADBHS000000",
+                        "class": "PS15"
+                },
+                {
+                        "title": "Driver Reference: DNS. 003",
+                        "number": "105DOD0389",
+                        "account": "105DODEADBHS000000",
+                        "class": "PS10"
+                },
+                {
+                        "title": "OIC - Nursing Officer  - Acute Reference: DNS. 008",
+                        "number": "105DOD0145",
+                        "account": "105DODEADBHSACSA00",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Nursing Officer  - General Nurse Reference: DNS. 010",
+                        "number": "105DOD0149",
+                        "account": "105DODEADBHSACSA00",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Senior Nursing Officer, TB/ HIV/AIDS Reference: DNS. 012",
+                        "number": "105DOD0152",
+                        "account": "105DODEADBHSACSA00",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Senior Nursing Officer  - MidWife Nurse Reference: DNS. 015",
+                        "number": "105DOD0157",
+                        "account": "105DODEADBHSACSA00",
+                        "class": "PS11"
+                },
+                {
+                        "title": "OIC Nursing Officer  - Acute Nurse Reference: DNS. 017",
+                        "number": "105DOD0168",
+                        "account": "105DODEADBHSACSA00",
+                        "class": "PS12"
+                },
+                {
+                        "title": "2IC - Nursing Officer  - Acute Nurse Reference: DNS. 018",
+                        "number": "105DOD0173",
+                        "account": "105DODEADBHSACSD00",
+                        "class": "PS11"
+                },
+                {
+                        "title": "Senior Nursing Officer  - Mental Health Reference: DNS. 022",
+                        "number": "105DOD0140",
+                        "account": "105DODEADBHSACSB00",
+                        "class": "PS11"
+                },
+                {
+                        "title": "OIC - Nursing Officer  - Specialist Nurse Reference: DNS. 024",
+                        "number": "105DOD0136",
+                        "account": "105DODEADBHSACSB00",
+                        "class": "PS12"
+                },
+                {
+                        "title": "Office Cleaner- Murray Barracks Family Aid Post (FAP) Reference: DNS. 028",
+                        "number": "105DOD0180",
+                        "account": "105DODEADBHSACSB00",
+                        "class": "PS08"
+                },
+                {
+                        "title": "OIC - Nursing Officer  - Specialist Nurse Reference: DNS. 034",
+                        "number": "105DOD0147",
+                        "account": "105DODEADBHSACSD00",
+                        "class": "PS12"
+                },
+                {
+                        "title": "2IC - Nursing Officer  - Specialist Nurse Reference: DNS. 035",
+                        "number": "105DOD0153",
+                        "account": "105DODEADBHSACSD00",
+                        "class": "PS11"
+                },
+                {
+                        "title": "Nursing Officer  - General Nurse Reference: DNS. 036",
+                        "number": "105DOD0169",
+                        "account": "105DODEADBHSACSD00",
+                        "class": "PS10"
+                },
+                {
+                        "title": "OIC - Nursing Officer  - Specialist Nurse Reference: DNS. 038",
+                        "number": "105DOD0167",
+                        "account": "105DODEADBHSACSD00",
+                        "class": "PS12"
+                },
+                {
+                        "title": "2IC - Nursing Officer  - Acute/ Paediatric Reference: DNS. 044",
+                        "number": "105DOD0091",
+                        "account": "105DODEADBHSACSE00",
+                        "class": "PS11"
+                },
+                {
+                        "title": "Office Attendant Reference: DNS. 046",
+                        "number": "105DOD0333",
+                        "account": "105DODEADBHSACSE00",
+                        "class": "PS08"
+                },
+                {
+                        "title": "Nursing Officer  - Specialist Nurse Reference: DNS. 049",
+                        "number": "105DOD0166",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS11"
+                },
+                {
+                        "title": "General Nursing Officer  - Junior Nurse Reference: DNS. 050",
+                        "number": "105DOD0170",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Driver/Administration Clerk Reference: DNS. 051",
+                        "number": "105DOD0178",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Office Attendant Reference: DNS. 052",
+                        "number": "105DOD0164",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                },
+                {
+                        "title": "Nursing Officer Reference: DNS. 054",
+                        "number": "105DOD0083",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS11"
+                },
+                {
+                        "title": "Nursing Officer Reference: DNS. 055",
+                        "number": "105DOD0064",
+                        "account": "105DODFOPDCABAAHTA",
+                        "class": "PS10"
+                }
+        ]
+};
+
+      const steps = Array.from(document.querySelectorAll(".form-step"));
+      const nextBtn = document.getElementById("nextBtn");
+      const backBtn = document.getElementById("backBtn");
+      const submitBtn = document.getElementById("submitBtn");
+      const exitBtn = document.getElementById("exitBtn");
+      const form = document.getElementById("vacancyForm");
+      let currentStep = 0;
+      let selectedVacancy = null;
+
+      function showStep(index) {
+        steps.forEach((step, stepIndex) => {
+          step.classList.toggle("active", stepIndex === index);
+        });
+
+        backBtn.style.display = index === 0 ? "none" : "inline-block";
+        nextBtn.style.display = index === steps.length - 1 ? "none" : "inline-block";
+        submitBtn.style.display = index === steps.length - 1 ? "inline-block" : "none";
+
+        updateProgress(index);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function updateProgress(index) {
+        const totalSteps = steps.length;
+        const current = index + 1;
+        const percent = Math.round((current / totalSteps) * 100);
+
+        document.getElementById("progressFill").style.width = `${percent}%`;
+        document.getElementById("progressStepText").textContent = `Step ${current} of ${totalSteps}`;
+        document.getElementById("progressPercentText").textContent = `${percent}% Complete`;
+
+        for (let stepNumber = 1; stepNumber <= totalSteps; stepNumber++) {
+          const pill = document.getElementById(`stepPill${stepNumber}`);
+          if (!pill) continue;
+          pill.classList.toggle("active", stepNumber === current);
+          pill.classList.toggle("completed", stepNumber < current);
+        }
+      }
+
+      function setReviewValue(id, value) {
+        const element = document.getElementById(id);
+        if (element) element.textContent = value || "-";
+      }
+
+      function getFileName(inputId) {
+        const input = document.getElementById(inputId);
+        return input && input.files && input.files.length ? input.files[0].name : "Not uploaded";
+      }
+
+      function populateReview() {
+        setReviewValue("reviewFirstName", document.getElementById("firstName").value);
+        setReviewValue("reviewLastName", document.getElementById("lastName").value);
+        setReviewValue("reviewGender", document.querySelector('input[name="gender"]:checked')?.value || "-");
+        setReviewValue("reviewDob", document.getElementById("dob").value);
+        setReviewValue("reviewPhone", document.getElementById("phone").value);
+        setReviewValue("reviewEmail", document.getElementById("email").value);
+        setReviewValue("reviewAddress", document.getElementById("address").value);
+        setReviewValue("reviewDivision", document.getElementById("division").value);
+        setReviewValue("reviewPositionTitle", document.getElementById("positionTitle").value);
+        setReviewValue("reviewPositionRef", document.getElementById("positionRef").value);
+        setReviewValue("reviewQualification", document.getElementById("qualification").value);
+        setReviewValue("reviewFieldStudy", document.getElementById("fieldStudy").value);
+        setReviewValue("reviewQualificationObtained", document.getElementById("qualificationObtained").value);
+        setReviewValue("reviewInstitution", document.getElementById("institution").value);
+        setReviewValue("reviewWorkExperience", document.getElementById("workExperience").value);
+        setReviewValue("reviewRelevantExperience", document.getElementById("relevantExperience").value);
+        setReviewValue("reviewReferences", document.getElementById("references").value);
+        setReviewValue("reviewQualificationMatch", document.getElementById("qualificationMatch").value);
+        setReviewValue("reviewTrainingCertificate", getFileName("trainingCertificate"));
+        setReviewValue("reviewQualificationCertificate", getFileName("qualificationCertificate"));
+        setReviewValue("reviewCv", getFileName("cvUpload"));
+        setReviewValue("reviewPassportPhoto", getFileName("passportPhoto"));
+      }
+
+      function validateCurrentStep() {
+        const currentFields = Array.from(steps[currentStep].querySelectorAll("input, select, textarea"));
+
+        for (const field of currentFields) {
+          if (!field.checkValidity()) {
+            field.reportValidity();
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      function escapeHtml(value) {
+        return String(value || "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function extractReferenceNumber(title) {
+        const match = String(title || "").match(/Reference\s*:\s*(.+)$/i);
+        return match ? match[1].trim() : "";
+      }
+
+      function cleanPositionTitle(title) {
+        return String(title || "").replace(/\s*Reference\s*:\s*.+$/i, "").trim();
+      }
+
+      function renderVacancySelector(filterText = "") {
+        const container = document.getElementById("vacancyDivisionList");
+        if (!container) return;
+
+        const search = filterText.trim().toLowerCase();
+        const selectedDivisionFilter = document.getElementById("division")?.value || "";
+        let html = "";
+
+        Object.entries(VACANCIES_BY_DIVISION).forEach(([division, positions], index) => {
+          if (selectedDivisionFilter && division !== selectedDivisionFilter) return;
+
+          const filteredPositions = positions.filter(position => {
+            const referenceNumber = extractReferenceNumber(position.title);
+            const positionTitle = cleanPositionTitle(position.title);
+            const haystack = `${division} ${positionTitle} ${referenceNumber} ${position.number || ""} ${position.class || ""} ${position.account || ""}`.toLowerCase();
+            return !search || haystack.includes(search);
+          });
+
+          if (!filteredPositions.length) return;
+
+          const panelId = `vacancy-division-${index + 1}`;
+          const isOpen = search ? "open" : "";
+
+          html += `
+            <div class="vacancy-division-card" data-division="${escapeHtml(division)}">
+              <div class="vacancy-division-header">
+                <div>
+                  <h3>${escapeHtml(division)}</h3>
+                  <p>${filteredPositions.length} vacant position${filteredPositions.length === 1 ? "" : "s"}</p>
+                </div>
+                <button type="button" class="view-positions-btn" data-target="${panelId}">
+                  <i class="bi bi-chevron-down"></i>
+                  View Positions
+                </button>
+              </div>
+
+              <div class="vacancy-panel ${isOpen}" id="${panelId}">
+                <div class="table-responsive">
+                  <table class="vacancy-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 70px;">No.</th>
+                        <th style="width: 140px;">Position No.</th>
+                        <th style="width: 140px;">Reference No.</th>
+                        <th>Position Title</th>
+                        <th style="width: 90px;">Class</th>
+                        <th style="width: 120px;">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+          `;
+
+          filteredPositions.forEach((position, positionIndex) => {
+            const referenceNumber = extractReferenceNumber(position.title);
+            const positionTitle = cleanPositionTitle(position.title);
+
+            const selectedClass =
+              selectedVacancy &&
+              selectedVacancy.division === division &&
+              selectedVacancy.title === positionTitle &&
+              selectedVacancy.number === referenceNumber
+                ? "selected"
+                : "";
+
+            html += `
+              <tr>
+                <td>${String(positionIndex + 1).padStart(2, "0")}</td>
+                <td>${escapeHtml(position.number || "")}</td>
+                <td>${escapeHtml(referenceNumber)}</td>
+                <td>${escapeHtml(positionTitle)}</td>
+                <td>${escapeHtml(position.class || "")}</td>
+                <td>
+                  <button
+                    type="button"
+                    class="select-vacancy-btn ${selectedClass}"
+                    data-division="${escapeHtml(division)}"
+                    data-title="${escapeHtml(positionTitle)}"
+                    data-number="${escapeHtml(referenceNumber)}"
+                  >
+                    ${selectedClass ? "Selected" : "Select"}
+                  </button>
+                </td>
+              </tr>
+            `;
+          });
+
+          html += `
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        container.innerHTML = html || `
+          <div class="vacancy-selector-intro">
+            <h3>No matching vacancies found</h3>
+            <p class="mb-0">Select a position category/division, clear the search box, or use a different keyword.</p>
+          </div>
+        `;
+      }
+
+      function setSelectValue(selectId, value) {
+        const select = document.getElementById(selectId);
+        if (!select || !value) return;
+
+        const cleanValue = value.trim();
+
+        const existingOption = Array.from(select.options).find(option =>
+          option.value.trim().toLowerCase() === cleanValue.toLowerCase() ||
+          option.textContent.trim().toLowerCase() === cleanValue.toLowerCase()
+        );
+
+        if (existingOption) {
+          select.value = existingOption.value;
+        } else {
+          const newOption = document.createElement("option");
+          newOption.value = cleanValue;
+          newOption.textContent = cleanValue;
+          newOption.selected = true;
+          select.appendChild(newOption);
+        }
+      }
+
+      function setHiddenValue(id, value) {
+        const element = document.getElementById(id);
+        if (element) element.value = value || "";
+      }
+
+      function syncVacancyHiddenFields(division, title, number) {
+        setHiddenValue("divisionAlias", division);
+        setHiddenValue("divisionBranchAlias", division);
+        setHiddenValue("positionCategoryDivisionAlias", division);
+        setHiddenValue("positionTitleAlias", title);
+        setHiddenValue("designationAlias", title);
+        setHiddenValue("referenceNumberAlias", number);
+        setHiddenValue("positionReferenceNumberAlias", number);
+      }
+
+      function fillSelectedVacancy(division, title, number, moveToNextStep = true) {
+        selectedVacancy = { division, title, number };
+
+        setSelectValue("division", division);
+        syncVacancyHiddenFields(division, title, number);
+
+        const positionTitleField = document.getElementById("positionTitle");
+        const positionRefField = document.getElementById("positionRef");
+        const selectedConfirm = document.getElementById("selectedVacancyConfirm");
+        const selectedBox = document.getElementById("selectedVacancyBox");
+        const autoFillNote = document.getElementById("autoFillNote");
+
+        if (positionTitleField) {
+          positionTitleField.value = title;
+          positionTitleField.readOnly = true;
+        }
+
+        if (positionRefField) {
+          positionRefField.value = number;
+          positionRefField.readOnly = true;
+        }
+
+        if (selectedConfirm) {
+          selectedConfirm.value = `${division} | ${title} | ${number}`;
+        }
+
+        if (selectedBox) {
+          selectedBox.classList.add("show");
+          selectedBox.innerHTML = `
+            <div><strong>Selected Division:</strong> ${escapeHtml(division)}</div>
+            <div><strong>Selected Position:</strong> ${escapeHtml(title)}</div>
+            <div><strong>Reference Number:</strong> ${escapeHtml(number)}</div>
+          `;
+        }
+
+        if (autoFillNote) {
+          autoFillNote.classList.add("show");
+        }
+
+        renderVacancySelector(document.getElementById("vacancySearchInput")?.value || "");
+
+        if (moveToNextStep) {
+          /* Stay on Step 1 after selecting a vacancy.
+             The applicant must click Next to continue to Step 2: Instructions. */
+          currentStep = 0;
+          showStep(currentStep);
+        }
+      }
+
+      function getQueryParam(...names) {
+        const params = new URLSearchParams(window.location.search);
+        for (const name of names) {
+          const value = params.get(name);
+          if (value) return value.trim();
+        }
+        return "";
+      }
+
+      function autoFillSelectedVacancyFromUrl() {
+        const division = getQueryParam("division", "divisionName", "div");
+        const title = getQueryParam("position", "positionTitle", "title", "position_applied_for");
+        const number = getQueryParam("reference", "referenceNumber", "positionRef", "ref", "positionNo", "positionNumber", "number");
+
+        if (division && title && number) {
+          fillSelectedVacancy(division, title, number, false);
+        }
+      }
+
+      document.addEventListener("click", function (event) {
+        const viewButton = event.target.closest(".view-positions-btn");
+        if (viewButton) {
+          const targetId = viewButton.getAttribute("data-target");
+          const panel = document.getElementById(targetId);
+          const icon = viewButton.querySelector("i");
+
+          if (panel) {
+            panel.classList.toggle("open");
+            const isOpen = panel.classList.contains("open");
+            viewButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            if (icon) {
+              icon.className = isOpen ? "bi bi-chevron-up" : "bi bi-chevron-down";
+            }
+          }
+        }
+
+        const selectButton = event.target.closest(".select-vacancy-btn");
+        if (selectButton) {
+          fillSelectedVacancy(
+            selectButton.getAttribute("data-division"),
+            selectButton.getAttribute("data-title"),
+            selectButton.getAttribute("data-number"),
+            true
+          );
+        }
+      });
+
+      const vacancySearchInput = document.getElementById("vacancySearchInput");
+      if (vacancySearchInput) {
+        vacancySearchInput.addEventListener("input", () => {
+          renderVacancySelector(vacancySearchInput.value);
+        });
+      }
+
+      const clearVacancySearchBtn = document.getElementById("clearVacancySearchBtn");
+      if (clearVacancySearchBtn) {
+        clearVacancySearchBtn.addEventListener("click", () => {
+          if (vacancySearchInput) vacancySearchInput.value = "";
+          renderVacancySelector("");
+        });
+      }
+
+      const divisionSelect = document.getElementById("division");
+      if (divisionSelect) {
+        divisionSelect.addEventListener("change", () => {
+          const selectedDivision = divisionSelect.value || "";
+          setHiddenValue("divisionAlias", selectedDivision);
+          setHiddenValue("divisionBranchAlias", selectedDivision);
+          setHiddenValue("positionCategoryDivisionAlias", selectedDivision);
+          renderVacancySelector(document.getElementById("vacancySearchInput")?.value || "");
+        });
+      }
+
+      nextBtn.addEventListener("click", () => {
+        if (!validateCurrentStep()) return;
+
+        currentStep = Math.min(currentStep + 1, steps.length - 1);
+
+        if (currentStep === steps.length - 1) {
+          populateReview();
+        }
+
+        showStep(currentStep);
+      });
+
+      backBtn.addEventListener("click", () => {
+        currentStep = Math.max(currentStep - 1, 0);
+        showStep(currentStep);
+      });
+
+      exitBtn.addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        populateReview();
+
+        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE" || !GOOGLE_SCRIPT_URL.endsWith("/exec")) {
+          alert("Google Apps Script Web App URL has not been added yet or is invalid. Paste the deployed Apps Script Web App URL ending with /exec into GOOGLE_SCRIPT_URL.");
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting...";
+
+        try {
+          const selectedDivisionValue = document.getElementById("division")?.value || "";
+          const selectedPositionTitleValue = document.getElementById("positionTitle")?.value || "";
+          const selectedReferenceNumberValue = document.getElementById("positionRef")?.value || "";
+
+          const applicationData = {
+            division: selectedDivisionValue,
+            division_branch: selectedDivisionValue,
+            divisionBranch: selectedDivisionValue,
+            positionCategoryDivision: selectedDivisionValue,
+
+            positionTitle: selectedPositionTitleValue,
+            position_title: selectedPositionTitleValue,
+            designation: selectedPositionTitleValue,
+
+            referenceNumber: selectedReferenceNumberValue,
+            reference_number: selectedReferenceNumberValue,
+            positionReferenceNumber: selectedReferenceNumberValue,
+
+            firstName: document.getElementById("firstName")?.value || "",
+            lastName: document.getElementById("lastName")?.value || "",
+            gender: document.querySelector('input[name="gender"]:checked')?.value || "",
+            dateOfBirth: document.getElementById("dob")?.value || "",
+            phone: document.getElementById("phone")?.value || "",
+            email: document.getElementById("email")?.value || "",
+            address: document.getElementById("address")?.value || "",
+
+            highestQualification: document.getElementById("qualification")?.value || "",
+            fieldOfStudy: document.getElementById("fieldStudy")?.value || "",
+            qualificationObtained: document.getElementById("qualificationObtained")?.value || "",
+            institution: document.getElementById("institution")?.value || "",
+            workExperience: document.getElementById("workExperience")?.value || "",
+            relevantExperience: document.getElementById("relevantExperience")?.value || "",
+            trainingAttended: document.getElementById("trainingAttended")?.value || "",
+            trainingYear: document.getElementById("trainingYear")?.value || "",
+            references: document.getElementById("references")?.value || "",
+            qualificationMatch: document.getElementById("qualificationMatch")?.value || "",
+
+            trainingCertificate: await fileToBase64Object("trainingCertificate"),
+            qualificationCertificate: await fileToBase64Object("qualificationCertificate"),
+            cvUpload: await fileToBase64Object("cvUpload"),
+            passportPhoto: await fileToBase64Object("passportPhoto"),
+
+            submissionId: `DOD-${Date.now()}`,
+            submittedAt: new Date().toISOString()
+          };
+
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(applicationData)
+          });
+
+          localStorage.setItem("dodVacancyApplication", JSON.stringify({
+            division: applicationData.division,
+            divisionBranch: applicationData.divisionBranch,
+            positionTitle: applicationData.positionTitle,
+            designation: applicationData.designation,
+            referenceNumber: applicationData.referenceNumber,
+            positionReferenceNumber: applicationData.positionReferenceNumber,
+            positionRef: applicationData.referenceNumber,
+            firstName: applicationData.firstName,
+            lastName: applicationData.lastName,
+            email: applicationData.email
+          }));
+
+          window.location.href = "success.html";
+
+        } catch (error) {
+          console.error(error);
+          alert("Submission failed. Please check your internet connection and try again.");
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Submit";
+        }
+      });
+
+      function fileToBase64Object(inputId) {
+        return new Promise((resolve) => {
+          const input = document.getElementById(inputId);
+
+          if (!input || !input.files || input.files.length === 0) {
+            resolve(null);
+            return;
+          }
+
+          const file = input.files[0];
+          const reader = new FileReader();
+
+          reader.onload = function () {
+            const base64String = String(reader.result || "").split(",")[1] || "";
+
+            resolve({
+              fileName: file.name,
+              mimeType: file.type || "application/octet-stream",
+              base64: base64String
+            });
+          };
+
+          reader.onerror = function () {
+            resolve(null);
+          };
+
+          reader.readAsDataURL(file);
+        });
+      }
+
+      document.querySelectorAll('input[type="file"]').forEach((input) => {
+        input.addEventListener("change", () => {
+          const output = document.querySelector(`[data-file-name="${input.id}"]`);
+          if (!output) return;
+          output.textContent = input.files.length ? `Selected file: ${input.files[0].name}` : "";
+        });
+      });
+
+      const passportPhoto = document.getElementById("passportPhoto");
+      const passportPreview = document.getElementById("passportPreview");
+      const passportPlaceholder = document.getElementById("passportPlaceholder");
+
+      if (passportPhoto) {
+        passportPhoto.addEventListener("change", () => {
+          const file = passportPhoto.files && passportPhoto.files[0];
+
+          if (!file) {
+            passportPreview.style.display = "none";
+            passportPreview.src = "";
+            passportPlaceholder.style.display = "block";
+            return;
+          }
+
+          const reader = new FileReader();
+
+          reader.onload = (event) => {
+            passportPreview.src = event.target.result;
+            passportPreview.style.display = "block";
+            passportPlaceholder.style.display = "none";
+          };
+
+          reader.readAsDataURL(file);
+        });
+      }
+
+      renderVacancySelector();
+      autoFillSelectedVacancyFromUrl();
+      showStep(currentStep);
+    });
+  </script>
+
+</body>
+</html>

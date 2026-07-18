@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Application Submitted | Department of Defence PNG</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --dod-green: #0f5132;
+      --dod-green-dark: #102019;
+      --dod-gold: #ffc107;
+      --dod-light: #f4f7f5;
+      --dod-border: rgba(15, 81, 50, 0.16);
+      --dod-muted: #5f6f66;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(120deg, rgba(9, 44, 28, 0.92), rgba(15, 81, 50, 0.74)),
+        url('background.jpg') center/cover fixed;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #18251e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .success-card {
+      width: 100%;
+      max-width: 900px;
+      background: rgba(244, 247, 245, 0.97);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.36);
+    }
+
+    .success-header {
+      background: linear-gradient(120deg, #102019, #0f5132);
+      text-align: center;
+      padding: 46px 28px 42px;
+      color: #fff;
+    }
+
+    .logo-wrap {
+      width: 128px;
+      height: 128px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .success-icon {
+      width: 86px;
+      height: 86px;
+      margin: -43px auto 20px;
+      background: #fff;
+      color: var(--dod-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border: 4px solid var(--dod-gold);
+      box-shadow: 0 14px 30px rgba(16, 32, 25, 0.18);
+      position: relative;
+      z-index: 2;
+    }
+
+    .success-body {
+      padding: 0 46px 42px;
+      text-align: center;
+    }
+
+    .success-title {
+      color: var(--dod-green);
+      font-weight: 850;
+      margin-bottom: 12px;
+    }
+
+    .success-text {
+      color: #4c5a52;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+
+    .reference-box {
+      background: #fff;
+      border: 1px solid var(--dod-border);
+      border-left: 6px solid var(--dod-gold);
+      border-radius: 1rem;
+      padding: 18px 20px;
+      text-align: left;
+      margin: 22px auto;
+      max-width: 720px;
+      box-shadow: 0 10px 26px rgba(16, 32, 25, 0.07);
+    }
+
+    .reference-box h2 {
+      font-size: 1rem;
+      font-weight: 850;
+      color: var(--dod-green);
+      margin-bottom: 12px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 18px;
+    }
+
+    .detail-item {
+      border-bottom: 1px solid rgba(15, 81, 50, 0.10);
+      padding-bottom: 8px;
+    }
+
+    .detail-label {
+      display: block;
+      color: var(--dod-muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 3px;
+    }
+
+    .detail-value {
+      color: #18251e;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .notice-list {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: #4c5a52;
+      line-height: 1.6;
+    }
+
+    .btn-dod {
+      background: var(--dod-green);
+      color: #fff;
+      border: 0;
+      border-radius: 0.75rem;
+      padding: 12px 22px;
+      font-weight: 750;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 10px 24px rgba(16, 32, 25, 0.18);
+    }
+
+    .btn-dod:hover {
+      background: #0b3f27;
+      color: #fff;
+    }
+
+    .btn-outline-dod {
+      border: 1px solid var(--dod-green);
+      color: var(--dod-green);
+      border-radius: 0.75rem;
+      padding: 12px 22px;
+      font-weight: 750;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #fff;
+    }
+
+    .btn-outline-dod:hover {
+      background: var(--dod-green);
+      color: #fff;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    @media (max-width: 576px) {
+      body {
+        padding: 14px;
+        align-items: flex-start;
+      }
+
+      .success-body {
+        padding: 0 22px 32px;
+      }
+
+      .success-header {
+        padding: 34px 20px 34px;
+      }
+
+      .logo-wrap {
+        width: 104px;
+        height: 104px;
+      }
+
+      .success-icon {
+        width: 74px;
+        height: 74px;
+        margin-top: -37px;
+        font-size: 2.4rem;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .action-buttons {
+        display: grid !important;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="success-card">
+    <section class="success-header">
+      <div class="logo-wrap">
+        <img src="logo.png" alt="Papua New Guinea Emblem">
+      </div>
+      <h1 class="fw-bold mb-2">Department of Defence</h1>
+      <p class="mb-0">Papua New Guinea Position Vacancies Application Portal</p>
+    </section>
+
+    <section class="success-body">
+      <div class="success-icon">
+        <i class="bi bi-check-lg"></i>
+      </div>
+
+      <h2 class="success-title">Application Submitted Successfully</h2>
+
+      <p class="success-text">
+        Thank you. Your application for a Department of Defence advertised position vacancy has been submitted successfully.
+        Please keep your phone and email active, as only shortlisted applicants may be contacted for further screening,
+        interview, or assessment.
+      </p>
+
+      <div class="reference-box">
+        <h2><i class="bi bi-file-earmark-check-fill me-2"></i>Application Details</h2>
+        <div class="details-grid">
+          <div class="detail-item">
+            <span class="detail-label">Applicant Name</span>
+            <span class="detail-value" id="successApplicantName">Not provided</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Email</span>
+            <span class="detail-value" id="successEmail">Not provided</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Division / Branch</span>
+            <span class="detail-value" id="successDivision">Not provided</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Reference Number</span>
+            <span class="detail-value" id="successPositionRef">Not provided</span>
+          </div>
+
+          <div class="detail-item" style="grid-column: 1 / -1;">
+            <span class="detail-label">Position Title</span>
+            <span class="detail-value" id="successPositionTitle">Not provided</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reference-box">
+        <h2><i class="bi bi-info-circle-fill me-2"></i>Important Notice</h2>
+        <ul class="notice-list">
+          <li>Keep copies of your submitted application documents for your own records.</li>
+          <li>If you need to correct your application, submit a new application before the closing date.</li>
+          <li>Use the vacancy register to confirm the position title and reference number for any follow-up.</li>
+        </ul>
+      </div>
+
+      <div class="action-buttons d-flex flex-wrap justify-content-center gap-3">
+        <a href="index.html" class="btn-dod">
+          <i class="bi bi-house-door-fill"></i>
+          Back to Home
+        </a>
+
+        <a href="vacancies_by_divisions.html" class="btn-outline-dod">
+          <i class="bi bi-table"></i>
+          View Vacancy Register
+        </a>
+
+        <a href="application-form.html" class="btn-outline-dod">
+          <i class="bi bi-pencil-square"></i>
+          Submit Another Application
+        </a>
+      </div>
+
+      <div class="footer-note">
+        &copy; <span id="year"></span> Department of Defence Papua New Guinea. All rights reserved.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function readSavedApplication() {
+      try {
+        return JSON.parse(localStorage.getItem('dodVacancyApplication') || '{}');
+      } catch (error) {
+        return {};
+      }
+    }
+
+    function setText(id, value) {
+      const element = document.getElementById(id);
+      if (!element) return;
+      const cleanValue = String(value || '').trim();
+      element.textContent = cleanValue || 'Not provided';
+    }
+
+    const savedApplication = readSavedApplication();
+    const applicantName = [savedApplication.firstName, savedApplication.lastName]
+      .filter(Boolean)
+      .join(' ');
+
+    setText('successApplicantName', applicantName);
+    setText('successEmail', savedApplication.email);
+    setText('successDivision', savedApplication.division || savedApplication.divisionBranch || savedApplication.positionCategoryDivision);
+    setText('successPositionTitle', savedApplication.positionTitle || savedApplication.designation || savedApplication.position_title);
+    setText('successPositionRef', savedApplication.referenceNumber || savedApplication.positionReferenceNumber || savedApplication.positionRef || savedApplication.reference_number);
+  </script>
+</body>
+</html>

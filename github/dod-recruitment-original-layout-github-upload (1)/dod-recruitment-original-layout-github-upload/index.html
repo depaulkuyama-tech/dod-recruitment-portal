@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Position Vacancies | Department of Defence Papua New Guinea</title>
+  <meta name="description" content="Department of Defence Papua New Guinea position vacancies portal." />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --dod-green: #0f5132;
+      --dod-green-dark: #102019;
+      --dod-gold: #ffc107;
+      --dod-light: #f4f7f5;
+      --dod-muted: #6c757d;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        linear-gradient(120deg, rgba(9, 44, 28, 0.92), rgba(15, 81, 50, 0.76)),
+        url('background.jpg') center/cover fixed;
+      color: #18251e;
+    }
+
+    .top-bar {
+      background: var(--dod-green-dark);
+      color: #fff;
+      font-size: 0.84rem;
+    }
+
+    .navbar {
+      background: var(--dod-green);
+      /* transparency removed */
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: #fff !important;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+      color: var(--dod-gold) !important;
+    }
+
+    .site-logo {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+    }
+
+    .hero {
+      min-height: calc(100vh - 120px);
+      display: flex;
+      align-items: center;
+      padding: 4rem 0;
+      color: #fff;
+    }
+
+    .hero-card {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+      background: #f4f7f5;
+      border: 1px solid rgba(15, 81, 50, 0.18);
+      border-radius: 1.5rem;
+      padding: 3rem;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.30);
+      /* transparency removed */
+    }
+
+    .hero-logo {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 1.25rem;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.55));
+    }
+
+    .badge-soft {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: #fff3cd;
+      color: #7a5200;
+      border: 1px solid #ffc107;
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.85rem, 4.4vw, 3.35rem);
+      font-weight: 850;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: var(--dod-green);
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 2rem;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: #4c5a52;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 760px;
+      margin: 0 auto 2rem;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      border: 1px solid rgba(15, 81, 50, 0.18);
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+
+    .stat-card strong {
+      display: block;
+      color: var(--dod-green);
+      font-size: 1.28rem;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-card span {
+      color: #4c5a52;
+      font-size: 0.84rem;
+    }
+
+    .btn-dod-main {
+      background: var(--dod-gold);
+      color: #102019;
+      border: 0;
+      border-radius: 0.9rem;
+      padding: 0.95rem 1.45rem;
+      font-weight: 750;
+      font-size: 0.94rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
+    }
+
+    .btn-dod-main:hover,
+    .btn-dod-main:focus {
+      background: #ffcd39;
+      color: #102019;
+    }
+
+    .btn-dod-secondary {
+      background: #ffffff;
+      color: var(--dod-green);
+      border: 1px solid var(--dod-green);
+      border-radius: 0.9rem;
+      padding: 0.95rem 1.45rem;
+      font-weight: 750;
+      font-size: 0.94rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .btn-dod-secondary:hover,
+    .btn-dod-secondary:focus {
+      background: #fff;
+      color: var(--dod-green);
+    }
+
+    .footer {
+      background: var(--dod-green-dark);
+      color: #4c5a52;
+      text-align: center;
+      padding: 1.25rem;
+      font-size: 0.86rem;
+    }
+
+    /* Custom mobile hamburger menu */
+    .mobile-menu-toggle {
+      width: 46px;
+      height: 42px;
+      border: 1px solid var(--dod-green);
+      border-radius: 0.75rem;
+      background: #ffffff;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      box-shadow: none;
+    }
+
+    .mobile-menu-toggle:focus {
+      box-shadow: 0 0 0 0.18rem rgba(255, 193, 7, 0.28);
+      outline: none;
+    }
+
+    .hamburger-lines {
+      width: 24px;
+      height: 18px;
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hamburger-lines span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      border-radius: 999px;
+      background: #fff;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    .mobile-menu-toggle.is-open .hamburger-lines span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.is-open .hamburger-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.is-open .hamburger-lines span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    .mobile-menu-backdrop {
+      display: none;
+    }
+
+    @media (max-width: 991.98px) {
+      body.mobile-menu-open {
+        overflow: hidden;
+      }
+
+      .mobile-menu-toggle {
+        display: inline-flex;
+        position: relative;
+        z-index: 1065;
+      }
+
+      .mobile-menu-backdrop {
+        position: fixed;
+        inset: 0;
+        display: block;
+        background: rgba(0, 0, 0, 0.48);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.28s ease, visibility 0.28s ease;
+        z-index: 1045;
+      }
+
+      .mobile-menu-backdrop.show {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .navbar-collapse {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: min(84vw, 340px);
+        height: 100vh !important;
+        margin: 0;
+        padding: 1.25rem 1rem;
+        background: rgba(16, 32, 25, 0.98);
+        border-right: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 0 1.25rem 1.25rem 0;
+        box-shadow: 18px 0 45px rgba(0, 0, 0, 0.32);
+        overflow-y: auto;
+        transform: translateX(-105%);
+        transition: transform 0.32s ease;
+        z-index: 1055;
+      }
+
+      .navbar-collapse.show {
+        transform: translateX(0);
+      }
+
+      .navbar-collapse.collapsing {
+        height: 100vh !important;
+        transform: translateX(-105%);
+        transition: transform 0.32s ease;
+      }
+
+      .navbar-nav {
+        gap: 0.35rem;
+        padding-top: 5.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        padding: 0.9rem 1rem;
+        border-radius: 0.85rem;
+        font-size: 0.94rem;
+        font-weight: 650;
+      }
+
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link:focus {
+        background: rgba(255, 193, 7, 0.12);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding: 3rem 0;
+      }
+
+      .hero-card {
+        padding: 2rem 1.25rem;
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .site-logo {
+        width: 56px;
+        height: 56px;
+      }
+
+      .hero-logo {
+        width: 120px;
+        height: 120px;
+      }
+
+      .navbar-brand span {
+        font-size: 0.84rem;
+      }
+
+      .hero p {
+        font-size: 0.94rem;
+      }
+
+      .d-flex.action-wrap {
+        flex-direction: column;
+      }
+
+      .btn-dod-main,
+      .btn-dod-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar py-2">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <div><i class="bi bi-shield-lock me-1"></i> Department of Defence Papua New Guinea</div>
+      <div><i class="bi bi-geo-alt me-1"></i> Port Moresby, Papua New Guinea</div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+        <img src="logo.png" alt="Papua New Guinea Emblem" class="site-logo">
+        <span>DOD PNG Vacancies</span>
+      </a>
+
+      <button class="mobile-menu-toggle navbar-toggler" id="mobileMenuToggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger-lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="vacancies_by_divisions.html">View Position Vacancies</a></li>
+          <li class="nav-item"><a class="nav-link" href="application-form.html">Apply Online</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <img src="logo.png" alt="Papua New Guinea Emblem" class="hero-logo">
+
+        <div class="badge-soft">
+          <i class="bi bi-briefcase-fill"></i>
+          Position Vacancies Portal
+        </div>
+
+        <h1>Department of Defence Position Vacancies</h1>
+
+        <p>
+          View the Department of Defence Papua New Guinea advertised position vacancies by division
+          and submit your application online.
+        </p>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <strong>266</strong>
+            <span>Advertised positions</span>
+          </div>
+          <div class="stat-card">
+            <strong>9</strong>
+            <span>Main divisions</span>
+          </div>
+          <div class="stat-card">
+            <strong>Online</strong>
+            <span>Application form</span>
+          </div>
+        </div>
+
+        <div class="d-flex action-wrap flex-wrap justify-content-center gap-3">
+          <a href="vacancies_by_divisions.html" class="btn-dod-main">
+            View Position Vacancies
+            <i class="bi bi-arrow-right"></i>
+          </a>
+
+          <a href="application-form.html" class="btn-dod-secondary">
+            Apply Online
+            <i class="bi bi-pencil-square"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <footer class="footer">
+    &copy; <span id="year"></span> Department of Defence Papua New Guinea. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+
+    function openMobileMenu() {
+      mobileMenuToggle.classList.add('is-open');
+      mobileMenuToggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('mobile-menu-open');
+      if (mobileMenuBackdrop) mobileMenuBackdrop.classList.add('show');
+    }
+
+    function closeMobileMenu() {
+      mobileMenuToggle.classList.remove('is-open');
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('mobile-menu-open');
+      if (mobileMenuBackdrop) mobileMenuBackdrop.classList.remove('show');
+    }
+
+    if (mainNav && mobileMenuToggle) {
+      mainNav.addEventListener('show.bs.collapse', openMobileMenu);
+      mainNav.addEventListener('hide.bs.collapse', closeMobileMenu);
+
+      if (mobileMenuBackdrop) {
+        mobileMenuBackdrop.addEventListener('click', function () {
+          bootstrap.Collapse.getOrCreateInstance(mainNav).hide();
+        });
+      }
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && mainNav.classList.contains('show')) {
+          bootstrap.Collapse.getOrCreateInstance(mainNav).hide();
+        }
+      });
+
+      document.querySelectorAll('.navbar-collapse .nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (mainNav.classList.contains('show')) {
+            bootstrap.Collapse.getOrCreateInstance(mainNav).hide();
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
