@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Position Vacancies Application Form | Department of Defence PNG</title>
+  <meta name="dod-google-script-url" content="https://script.google.com/macros/s/AKfycbwP1GOzSJwqvuNCAUtOJyFrE_AHsGLKYNAs3L71YssTQif7uXHy_I_kC8Pz1C5Vfq4/exec" />
+  <title>External Recruitment Online Application | Department of Defence PNG</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -637,7 +638,7 @@
       word-break: break-word;
     }
 
-    @media (max-width: 768px) {
+    /* Legacy duplicated mobile rules retained from the source are disabled.
       .progress-wrap,
       .form-header,
       .form-section,
@@ -1022,6 +1023,104 @@
         width: 100%;
       }
     }
+    */
+
+    .field-help {
+      margin-top: 0.4rem;
+      color: #56645c;
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .section-heading {
+      margin: 0 0 22px;
+      color: var(--dod-green);
+      font: 800 1.2rem/1.3 Arial, Helvetica, sans-serif;
+    }
+
+    .declaration-box {
+      margin-top: 24px;
+      padding: 20px;
+      background: #fff;
+      border: 1px solid var(--dod-border);
+      border-radius: 1rem;
+    }
+
+    .submission-status {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 18px;
+      border-radius: 0.75rem;
+      font-weight: 700;
+    }
+
+    .submission-status.show { display: block; }
+    .submission-status.error { color: #842029; background: #f8d7da; border: 1px solid #f5c2c7; }
+    .submission-status.info { color: #055160; background: #cff4fc; border: 1px solid #b6effb; }
+
+    @media (max-width: 768px) {
+      body { background-attachment: scroll; }
+
+      .page-shell {
+        margin: 0;
+        min-height: 100vh;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .progress-wrap,
+      .form-header,
+      .form-section,
+      .actions {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .brand-banner {
+        flex-direction: column;
+        min-height: 160px;
+        padding: 20px;
+      }
+
+      .brand-logo { width: 92px; height: 92px; }
+      .step-one-layout,
+      .form-row-custom,
+      .two-col,
+      .review-grid,
+      .vacancy-search-row { grid-template-columns: 1fr; }
+
+      .form-row-custom { gap: 8px; }
+      .two-col { gap: 18px; }
+      .step-indicators { display: none; }
+
+      .passport-photo-card {
+        position: static;
+        max-width: 260px;
+        margin: 0 auto 22px;
+      }
+
+      .vacancy-division-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .view-positions-btn,
+      .select-vacancy-btn { width: 100%; }
+
+      .actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+      }
+
+      .actions > div { display: flex; gap: 12px; }
+      .btn-form { width: 100%; min-width: 0; }
+    }
+
+    @media (max-width: 420px) {
+      .actions > div { flex-direction: column-reverse; }
+      .form-title { font-size: 1.4rem; }
+      .brand-title { font-size: 1.25rem; }
+    }
   </style>
 </head>
 
@@ -1033,9 +1132,9 @@
         <h1 class="brand-title">DEPARTMENT OF DEFENCE</h1>
       </div>
 
-      <h2 class="form-title">POSITION VACANCIES APPLICATION FORM</h2>
+      <h2 class="form-title">EXTERNAL RECRUITMENT ONLINE APPLICATION</h2>
       <p class="form-subtitle">
-        Please complete this form to apply for the advertised positions. Ensure all information is accurate and documents are uploaded before submission. Only shortlisted candidates will be contacted.
+        Apply for one advertised Department of Defence position. Complete every required field, upload clear supporting documents, and review your information before submitting. Only shortlisted applicants will be contacted.
       </p>
     </header>
 
@@ -1052,8 +1151,8 @@
       <div class="step-indicators">
         <div id="stepPill1" class="step-pill active">1. Select Vacancy</div>
         <div id="stepPill2" class="step-pill">2. Instructions</div>
-        <div id="stepPill3" class="step-pill">3. Personal Details</div>
-        <div id="stepPill4" class="step-pill">4. Position & Documents</div>
+        <div id="stepPill3" class="step-pill">3. Applicant Details</div>
+        <div id="stepPill4" class="step-pill">4. Qualifications & Documents</div>
         <div id="stepPill5" class="step-pill">5. Review & Submit</div>
       </div>
     </div>
@@ -1066,7 +1165,7 @@
           <div class="form-section">
             <div class="vacancy-selector-intro">
               <h3><i class="bi bi-briefcase-fill me-2"></i>Select Vacant Position by Division</h3>
-              <p class="mb-0">First choose the <strong>Position Category / Division</strong>. Then click <strong>View Positions</strong> and click <strong>Select</strong> beside the position you want to apply for. The Position Title and Reference Number will be filled automatically from the official 266-position vacancy register.</p>
+              <p class="mb-0">Choose a <strong>Position Category / Division</strong>, open its positions, and click <strong>Select</strong>. If you arrived from the vacancy register, the selected position is filled automatically.</p>
             </div>
 
 
@@ -1075,10 +1174,10 @@
               <select id="division" name="division_branch" class="form-select" required>
                                 <option value="">Please Select</option>
                 <option>Executive Division</option>
-                <option>Information Communication Technology</option>
-                <option>Stratergic Policy Research &amp; Development</option>
+                <option>Information &amp; Communication Technology</option>
+                <option>Strategic Policy Research &amp; Development</option>
                 <option>Capability Acquisition &amp; Sustainability Division</option>
-                <option>Agencies Programing &amp; Monitoring Divison</option>
+                <option>Agencies Programming &amp; Monitoring Division</option>
                 <option>Human Resources Management Division</option>
                 <option>Financial Management Division</option>
                 <option>Assets &amp; Services Division</option>
@@ -1095,6 +1194,9 @@
             <input type="hidden" id="designationAlias" name="designation" value="">
             <input type="hidden" id="referenceNumberAlias" name="referenceNumber" value="">
             <input type="hidden" id="positionReferenceNumberAlias" name="positionReferenceNumber" value="">
+            <input type="hidden" id="positionCode" name="position_code" value="">
+            <input type="hidden" id="costAccount" name="cost_account" value="">
+            <input type="hidden" id="positionClass" name="position_class" value="">
 
             <div class="vacancy-search-row">
               <input type="search" id="vacancySearchInput" class="form-control" placeholder="Search position title or reference number...">
@@ -1115,10 +1217,13 @@
                 <li><strong>Closing Date:</strong> Submit your application before the advertised due date. Late applications may not be accepted.</li>
                 <li><strong>Position Details:</strong> Select the division and vacant position in Step 1. The Position Title and Reference Number will auto-fill automatically.</li>
                 <li><strong>Passport Size ID:</strong> Upload a clear recent passport-size photo in JPG or PNG format.</li>
+                <li><strong>Expression of Interest:</strong> Upload a signed EOI or cover letter addressed for the position selected in Step 1.</li>
                 <li><strong>CV File Name:</strong> Name your CV as <strong>Surname_FirstName_CV.pdf</strong>. Example: <strong>Kuyama_Paul_CV.pdf</strong>.</li>
                 <li><strong>Qualification File Name:</strong> Combine all certificates into one PDF and name it <strong>Surname_FirstName_Qualifications.pdf</strong>.</li>
                 <li><strong>Training Certificates:</strong> Combine training or award certificates into one PDF where possible.</li>
                 <li><strong>Document Format:</strong> Upload documents in PDF format unless otherwise stated.</li>
+                <li><strong>File Size:</strong> The passport photo must not exceed 2 MB. Each PDF must not exceed 8 MB, and the combined upload must not exceed 25 MB.</li>
+                <li><strong>One Position:</strong> This form submits one application for one position. Submit a separate application if applying for another advertised position.</li>
                 <li><strong>Accuracy:</strong> Ensure all information is correct before submission. Only shortlisted applicants will be contacted.</li>
               </ul>
 
@@ -1135,17 +1240,34 @@
         <!-- STEP 3: PERSONAL DETAILS -->
         <section class="form-step" data-step="3">
           <div class="form-section">
+            <h3 class="section-heading"><i class="bi bi-person-vcard-fill me-2"></i>Applicant Information</h3>
             <div class="step-one-layout">
               <div class="step-one-main">
                 <div class="two-col">
                   <div>
                     <label for="firstName" class="form-label">First Name <span class="required">*</span></label>
-                    <input type="text" id="firstName" name="first_name" class="form-control" required>
+                    <input type="text" id="firstName" name="first_name" class="form-control" autocomplete="given-name" maxlength="80" required>
                   </div>
 
                   <div>
-                    <label for="lastName" class="form-label">Last Name <span class="required">*</span></label>
-                    <input type="text" id="lastName" name="last_name" class="form-control" required>
+                    <label for="middleName" class="form-label">Middle Name</label>
+                    <input type="text" id="middleName" name="middle_name" class="form-control" autocomplete="additional-name" maxlength="80">
+                  </div>
+                </div>
+
+                <div class="two-col">
+                  <div>
+                    <label for="lastName" class="form-label">Last Name / Surname <span class="required">*</span></label>
+                    <input type="text" id="lastName" name="last_name" class="form-control" autocomplete="family-name" maxlength="80" required>
+                  </div>
+
+                  <div>
+                    <label for="citizenship" class="form-label">Citizenship <span class="required">*</span></label>
+                    <select id="citizenship" name="citizenship" class="form-select" required>
+                      <option value="">Please Select</option>
+                      <option value="Papua New Guinea">Papua New Guinea</option>
+                      <option value="Other">Other</option>
+                    </select>
                   </div>
                 </div>
 
@@ -1166,22 +1288,42 @@
 
                 <div class="form-row-custom">
                   <label for="dob">Date of Birth <span class="required">*</span></label>
-                  <input type="date" id="dob" name="date_of_birth" class="form-control" required>
+                  <input type="date" id="dob" name="date_of_birth" class="form-control" autocomplete="bday" required>
                 </div>
 
                 <div class="form-row-custom">
                   <label for="phone">Phone Number <span class="required">*</span></label>
-                  <input type="tel" id="phone" name="phone" class="form-control" placeholder="(+675) 000 000 00" required>
+                  <div>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Example: +675 7123 4567" autocomplete="tel" inputmode="tel" pattern="[0-9+() -]{7,20}" maxlength="20" required>
+                    <div class="field-help">Enter a telephone number where the recruitment team can contact you.</div>
+                  </div>
                 </div>
 
                 <div class="form-row-custom">
                   <label for="email">Email <span class="required">*</span></label>
-                  <input type="email" id="email" name="email" class="form-control" placeholder="Enter valid email address" required>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Enter a valid email address" autocomplete="email" maxlength="150" required>
                 </div>
 
                 <div class="form-row-custom">
                   <label for="address">Address <span class="required">*</span></label>
-                  <input type="text" id="address" name="address" class="form-control" placeholder="Postal address" required>
+                  <textarea id="address" name="address" class="form-control" rows="3" placeholder="Residential or postal address" autocomplete="street-address" maxlength="300" required></textarea>
+                </div>
+
+                <div class="form-row-custom">
+                  <label for="province">Province of Residence <span class="required">*</span></label>
+                  <input type="text" id="province" name="province_of_residence" class="form-control" maxlength="80" required>
+                </div>
+
+                <div class="form-row-custom">
+                  <label for="employmentStatus">Current Employment Status <span class="required">*</span></label>
+                  <select id="employmentStatus" name="employment_status" class="form-select" required>
+                    <option value="">Please Select</option>
+                    <option>Employed</option>
+                    <option>Self-employed</option>
+                    <option>Unemployed</option>
+                    <option>Student / Recent Graduate</option>
+                    <option>Other</option>
+                  </select>
                 </div>
 
               </div>
@@ -1190,7 +1332,7 @@
                 <div class="passport-photo-title">Passport Size ID Photo</div>
 
                 <label class="passport-photo-box" for="passportPhoto">
-                  <input type="file" id="passportPhoto" name="passport_photo" accept="image/png, image/jpeg">
+                  <input type="file" id="passportPhoto" name="passport_photo" accept="image/png, image/jpeg" required>
                   <img id="passportPreview" class="passport-photo-preview" alt="Passport photo preview">
                   <div id="passportPlaceholder" class="passport-photo-placeholder">
                     <i class="bi bi-person-bounding-box"></i>
@@ -1220,12 +1362,12 @@
 
             <div class="form-row-custom">
               <label for="positionTitle">Position Title <span class="required">*</span></label>
-              <input type="text" id="positionTitle" name="position_title" class="form-control" placeholder="Example: ICT Support Officer" required>
+              <input type="text" id="positionTitle" name="position_title" class="form-control" placeholder="Filled from the vacancy selected in Step 1" readonly required>
             </div>
 
             <div class="form-row-custom">
               <label for="positionRef">Reference Number <span class="required">*</span></label>
-              <input type="text" id="positionRef" name="reference_number" class="form-control" placeholder="Example: DEX. 001" required>
+              <input type="text" id="positionRef" name="reference_number" class="form-control" placeholder="Filled from the vacancy selected in Step 1" readonly required>
             </div>
 
             <div class="form-row-custom">
@@ -1249,8 +1391,8 @@
             </div>
 
             <div class="form-row-custom">
-              <label for="qualificationObtained">Qualification Obtained <span class="required">*</span></label>
-              <input type="text" id="qualificationObtained" name="qualification_obtained" class="form-control" placeholder="Year Graduated" required>
+              <label for="qualificationObtained">Year Qualification Obtained <span class="required">*</span></label>
+              <input type="number" id="qualificationObtained" name="qualification_obtained" class="form-control" placeholder="Example: 2024" min="1950" required>
             </div>
 
             <div class="form-row-custom">
@@ -1307,6 +1449,22 @@
             </div>
 
             <div class="form-row-custom align-items-start">
+              <label for="coverLetter">Expression of Interest / Cover Letter <span class="required">*</span></label>
+              <div>
+                <label class="upload-box" for="coverLetter">
+                  <input type="file" id="coverLetter" name="cover_letter" accept="application/pdf,.pdf" required>
+                  <div>
+                    <div class="upload-icon"><i class="bi bi-file-earmark-person-fill"></i></div>
+                    <div class="upload-title">Browse Files</div>
+                    <div class="upload-hint">Select one PDF file</div>
+                  </div>
+                </label>
+                <div class="file-note">Upload one signed EOI or cover letter in PDF format (maximum 8 MB).</div>
+                <div class="selected-file" data-file-name="coverLetter"></div>
+              </div>
+            </div>
+
+            <div class="form-row-custom align-items-start">
               <label for="trainingCertificate">Training/Award Certificate Upload</label>
               <div>
                 <label class="upload-box" for="trainingCertificate">
@@ -1317,7 +1475,7 @@
                     <div class="upload-hint">Drag and drop files here</div>
                   </div>
                 </label>
-                <div class="file-note">Upload your Training/Award Certificates in a single PDF file format.</div>
+                <div class="file-note">Upload training/award certificates as one PDF file (maximum 8 MB).</div>
                 <div class="selected-file" data-file-name="trainingCertificate"></div>
               </div>
             </div>
@@ -1333,7 +1491,7 @@
                     <div class="upload-hint">Drag and drop files here</div>
                   </div>
                 </label>
-                <div class="file-note">Upload your Academic Certificates in a single PDF file format.</div>
+                <div class="file-note">Combine academic certificates into one PDF file (maximum 8 MB).</div>
                 <div class="selected-file" data-file-name="qualificationCertificate"></div>
               </div>
             </div>
@@ -1349,7 +1507,7 @@
                     <div class="upload-hint">Drag and drop files here</div>
                   </div>
                 </label>
-                <div class="file-note">Upload your CV in a single PDF file format.</div>
+                <div class="file-note">Upload your current CV as one PDF file (maximum 8 MB).</div>
                 <div class="selected-file" data-file-name="cvUpload"></div>
               </div>
             </div>
@@ -1372,6 +1530,11 @@
                 </div>
 
                 <div class="review-item">
+                  <div class="review-label">Middle Name</div>
+                  <div class="review-value" id="reviewMiddleName">-</div>
+                </div>
+
+                <div class="review-item">
                   <div class="review-label">Last Name</div>
                   <div class="review-value" id="reviewLastName">-</div>
                 </div>
@@ -1387,6 +1550,11 @@
                 </div>
 
                 <div class="review-item">
+                  <div class="review-label">Citizenship</div>
+                  <div class="review-value" id="reviewCitizenship">-</div>
+                </div>
+
+                <div class="review-item">
                   <div class="review-label">Phone</div>
                   <div class="review-value" id="reviewPhone">-</div>
                 </div>
@@ -1399,6 +1567,16 @@
                 <div class="review-item">
                   <div class="review-label">Address</div>
                   <div class="review-value" id="reviewAddress">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Province of Residence</div>
+                  <div class="review-value" id="reviewProvince">-</div>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-label">Employment Status</div>
+                  <div class="review-value" id="reviewEmploymentStatus">-</div>
                 </div>
 
                 <div class="review-item">
@@ -1457,6 +1635,11 @@
                 </div>
 
                 <div class="review-item">
+                  <div class="review-label">EOI / Cover Letter</div>
+                  <div class="review-value" id="reviewCoverLetter">Not uploaded</div>
+                </div>
+
+                <div class="review-item">
                   <div class="review-label">Training Certificate</div>
                   <div class="review-value" id="reviewTrainingCertificate">Not uploaded</div>
                 </div>
@@ -1476,6 +1659,26 @@
                   <div class="review-value" id="reviewPassportPhoto">Not uploaded</div>
                 </div>
               </div>
+
+              <div class="declaration-box">
+                <h4 class="h6 fw-bold text-success mb-3">Applicant Declaration and Consent</h4>
+
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="accuracyDeclaration" name="accuracy_declaration" required>
+                  <label class="form-check-label" for="accuracyDeclaration">
+                    I declare that the information and documents supplied are true, complete, and accurate. I understand that false or misleading information may disqualify my application.
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="privacyConsent" name="privacy_consent" required>
+                  <label class="form-check-label" for="privacyConsent">
+                    I consent to the Department of Defence collecting and using my information for recruitment, assessment, reference checking, and related employment purposes.
+                  </label>
+                </div>
+              </div>
+
+              <div id="submissionStatus" class="submission-status" role="status" aria-live="polite"></div>
             </div>
           </div>
         </section>
@@ -1486,19 +1689,29 @@
           <div class="ms-auto d-flex gap-3">
             <button type="button" id="backBtn" class="btn-form btn-back" style="display: none;">Back</button>
             <button type="button" id="nextBtn" class="btn-form btn-next">Next</button>
-            <button type="submit" id="submitBtn" class="btn-form btn-submit" style="display: none;">Submit</button>
+            <button type="submit" id="submitBtn" class="btn-form btn-submit" style="display: none;">Submit Application</button>
           </div>
         </div>
       </form>
     </main>
   </div>
 
+  <script src="vacancies-data.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Paste your Google Apps Script Web App URL below. It must end with /exec.
-      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwP1GOzSJwqvuNCAUtOJyFrE_AHsGLKYNAs3L71YssTQif7uXHy_I_kC8Pz1C5Vfq4/exec";
+      // Replace the content of the dod-google-script-url meta tag after deploying Code.gs.
+      const GOOGLE_SCRIPT_URL = document.querySelector('meta[name="dod-google-script-url"]')?.content.trim() || "";
 
-      const VACANCIES_BY_DIVISION = {
+      const FILE_RULES = {
+        passportPhoto: { maxBytes: 2 * 1024 * 1024, extensions: ["jpg", "jpeg", "png"], label: "Passport photo" },
+        coverLetter: { maxBytes: 8 * 1024 * 1024, extensions: ["pdf"], label: "EOI / cover letter" },
+        trainingCertificate: { maxBytes: 8 * 1024 * 1024, extensions: ["pdf"], label: "Training/award certificate" },
+        qualificationCertificate: { maxBytes: 8 * 1024 * 1024, extensions: ["pdf"], label: "Qualification certificate" },
+        cvUpload: { maxBytes: 8 * 1024 * 1024, extensions: ["pdf"], label: "CV" }
+      };
+      const MAX_TOTAL_UPLOAD_BYTES = 25 * 1024 * 1024;
+
+      const EMBEDDED_VACANCIES_BY_DIVISION = {
         "Executive Division": [
                 {
                         "title": "Senior Executive Assistant Reference: DEX. 003",
@@ -1611,9 +1824,9 @@
                         "class": "PS12"
                 }
         ],
-        "Stratergic Policy Research & Development": [
+        "Strategic Policy Research & Development Division": [
                 {
-                        "title": "First Assistant Secretary - Strategic Poliucy Research & Development Reference: DSPRD. 001",
+                        "title": "First Assistant Secretary - Strategic Policy Research & Development Reference: DSPRD. 001",
                         "number": "105DOD0029",
                         "account": "105DODPOLSPR000000",
                         "class": "PS18"
@@ -1741,7 +1954,7 @@
                         "class": "PS12"
                 }
         ],
-        "Agencies Programing & Monitoring Divison": [
+        "Agencies Programming & Monitoring Division": [
                 {
                         "title": "Executive Assistant Reference: DAPM. 002",
                         "number": "105DOD0084",
@@ -3115,6 +3328,25 @@
         ]
 };
 
+      function buildVacanciesByDivision() {
+        const sharedVacancies = Array.isArray(window.DOD_VACANCIES) ? window.DOD_VACANCIES : [];
+        if (!sharedVacancies.length) return EMBEDDED_VACANCIES_BY_DIVISION;
+
+        return sharedVacancies.reduce((groups, vacancy) => {
+          const division = String(vacancy.division || "Unassigned Division").trim();
+          if (!groups[division]) groups[division] = [];
+          groups[division].push({
+            title: `${String(vacancy.positionTitle || "").trim()} Reference: ${String(vacancy.referenceNumber || "").trim()}`,
+            number: String(vacancy.positionCode || "").trim(),
+            account: String(vacancy.costAccount || "").trim(),
+            class: String(vacancy.class || "").trim()
+          });
+          return groups;
+        }, {});
+      }
+
+      const VACANCIES_BY_DIVISION = buildVacanciesByDivision();
+
       const steps = Array.from(document.querySelectorAll(".form-step"));
       const nextBtn = document.getElementById("nextBtn");
       const backBtn = document.getElementById("backBtn");
@@ -3166,12 +3398,16 @@
 
       function populateReview() {
         setReviewValue("reviewFirstName", document.getElementById("firstName").value);
+        setReviewValue("reviewMiddleName", document.getElementById("middleName").value);
         setReviewValue("reviewLastName", document.getElementById("lastName").value);
         setReviewValue("reviewGender", document.querySelector('input[name="gender"]:checked')?.value || "-");
         setReviewValue("reviewDob", document.getElementById("dob").value);
+        setReviewValue("reviewCitizenship", document.getElementById("citizenship").value);
         setReviewValue("reviewPhone", document.getElementById("phone").value);
         setReviewValue("reviewEmail", document.getElementById("email").value);
         setReviewValue("reviewAddress", document.getElementById("address").value);
+        setReviewValue("reviewProvince", document.getElementById("province").value);
+        setReviewValue("reviewEmploymentStatus", document.getElementById("employmentStatus").value);
         setReviewValue("reviewDivision", document.getElementById("division").value);
         setReviewValue("reviewPositionTitle", document.getElementById("positionTitle").value);
         setReviewValue("reviewPositionRef", document.getElementById("positionRef").value);
@@ -3183,6 +3419,7 @@
         setReviewValue("reviewRelevantExperience", document.getElementById("relevantExperience").value);
         setReviewValue("reviewReferences", document.getElementById("references").value);
         setReviewValue("reviewQualificationMatch", document.getElementById("qualificationMatch").value);
+        setReviewValue("reviewCoverLetter", getFileName("coverLetter"));
         setReviewValue("reviewTrainingCertificate", getFileName("trainingCertificate"));
         setReviewValue("reviewQualificationCertificate", getFileName("qualificationCertificate"));
         setReviewValue("reviewCv", getFileName("cvUpload"));
@@ -3190,6 +3427,12 @@
       }
 
       function validateCurrentStep() {
+        if (currentStep === 0 && !selectedVacancy) {
+          alert("Please select a vacant position before continuing.");
+          document.getElementById("division")?.focus();
+          return false;
+        }
+
         const currentFields = Array.from(steps[currentStep].querySelectorAll("input, select, textarea"));
 
         for (const field of currentFields) {
@@ -3298,6 +3541,9 @@
                     data-division="${escapeHtml(division)}"
                     data-title="${escapeHtml(positionTitle)}"
                     data-number="${escapeHtml(referenceNumber)}"
+                    data-position-code="${escapeHtml(position.number || "")}"
+                    data-cost-account="${escapeHtml(position.account || "")}"
+                    data-position-class="${escapeHtml(position.class || "")}"
                   >
                     ${selectedClass ? "Selected" : "Select"}
                   </button>
@@ -3360,11 +3606,14 @@
         setHiddenValue("positionReferenceNumberAlias", number);
       }
 
-      function fillSelectedVacancy(division, title, number, moveToNextStep = true) {
-        selectedVacancy = { division, title, number };
+      function fillSelectedVacancy(division, title, number, moveToNextStep = true, positionCode = "", costAccount = "", positionClass = "") {
+        selectedVacancy = { division, title, number, positionCode, costAccount, positionClass };
 
         setSelectValue("division", division);
         syncVacancyHiddenFields(division, title, number);
+        setHiddenValue("positionCode", positionCode);
+        setHiddenValue("costAccount", costAccount);
+        setHiddenValue("positionClass", positionClass);
 
         const positionTitleField = document.getElementById("positionTitle");
         const positionRefField = document.getElementById("positionRef");
@@ -3422,9 +3671,12 @@
         const division = getQueryParam("division", "divisionName", "div");
         const title = getQueryParam("position", "positionTitle", "title", "position_applied_for");
         const number = getQueryParam("reference", "referenceNumber", "positionRef", "ref", "positionNo", "positionNumber", "number");
+        const positionCode = getQueryParam("positionCode", "position_code");
+        const costAccount = getQueryParam("costAccount", "cost_account");
+        const positionClass = getQueryParam("class", "positionClass", "position_class");
 
         if (division && title && number) {
-          fillSelectedVacancy(division, title, number, false);
+          fillSelectedVacancy(division, title, number, false, positionCode, costAccount, positionClass);
         }
       }
 
@@ -3451,7 +3703,10 @@
             selectButton.getAttribute("data-division"),
             selectButton.getAttribute("data-title"),
             selectButton.getAttribute("data-number"),
-            true
+            true,
+            selectButton.getAttribute("data-position-code"),
+            selectButton.getAttribute("data-cost-account"),
+            selectButton.getAttribute("data-position-class")
           );
         }
       });
@@ -3500,7 +3755,15 @@
       });
 
       exitBtn.addEventListener("click", () => {
-        window.location.href = "index.html";
+        const hasEnteredData = Array.from(form.elements).some(field =>
+          (field.type === "file" && field.files?.length) ||
+          (field.type === "checkbox" && field.checked) ||
+          (field.type !== "hidden" && typeof field.value === "string" && field.value.trim())
+        );
+
+        if (!hasEnteredData || window.confirm("Exit this application? Information entered on this form will not be submitted.")) {
+          window.location.href = "index.html";
+        }
       });
 
       form.addEventListener("submit", async function (event) {
@@ -3508,13 +3771,29 @@
 
         populateReview();
 
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const totalUploadBytes = Object.keys(FILE_RULES).reduce((total, inputId) => {
+          const file = document.getElementById(inputId)?.files?.[0];
+          return total + (file?.size || 0);
+        }, 0);
+
+        if (totalUploadBytes > MAX_TOTAL_UPLOAD_BYTES) {
+          showSubmissionStatus("The combined upload is larger than 25 MB. Reduce the file sizes and try again.", "error");
+          return;
+        }
+
         if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE" || !GOOGLE_SCRIPT_URL.endsWith("/exec")) {
           alert("Google Apps Script Web App URL has not been added yet or is invalid. Paste the deployed Apps Script Web App URL ending with /exec into GOOGLE_SCRIPT_URL.");
           return;
         }
 
         submitBtn.disabled = true;
-        submitBtn.textContent = "Submitting...";
+        submitBtn.textContent = "Submitting…";
+        showSubmissionStatus("Your application is being securely prepared and submitted. Please do not close this page.", "info");
 
         try {
           const selectedDivisionValue = document.getElementById("division")?.value || "";
@@ -3534,14 +3813,21 @@
             referenceNumber: selectedReferenceNumberValue,
             reference_number: selectedReferenceNumberValue,
             positionReferenceNumber: selectedReferenceNumberValue,
+            positionCode: document.getElementById("positionCode")?.value || "",
+            costAccount: document.getElementById("costAccount")?.value || "",
+            positionClass: document.getElementById("positionClass")?.value || "",
 
             firstName: document.getElementById("firstName")?.value || "",
+            middleName: document.getElementById("middleName")?.value || "",
             lastName: document.getElementById("lastName")?.value || "",
             gender: document.querySelector('input[name="gender"]:checked')?.value || "",
             dateOfBirth: document.getElementById("dob")?.value || "",
+            citizenship: document.getElementById("citizenship")?.value || "",
             phone: document.getElementById("phone")?.value || "",
             email: document.getElementById("email")?.value || "",
             address: document.getElementById("address")?.value || "",
+            provinceOfResidence: document.getElementById("province")?.value || "",
+            employmentStatus: document.getElementById("employmentStatus")?.value || "",
 
             highestQualification: document.getElementById("qualification")?.value || "",
             fieldOfStudy: document.getElementById("fieldStudy")?.value || "",
@@ -3554,10 +3840,14 @@
             references: document.getElementById("references")?.value || "",
             qualificationMatch: document.getElementById("qualificationMatch")?.value || "",
 
+            coverLetter: await fileToBase64Object("coverLetter"),
             trainingCertificate: await fileToBase64Object("trainingCertificate"),
             qualificationCertificate: await fileToBase64Object("qualificationCertificate"),
             cvUpload: await fileToBase64Object("cvUpload"),
             passportPhoto: await fileToBase64Object("passportPhoto"),
+
+            accuracyDeclaration: document.getElementById("accuracyDeclaration")?.checked === true,
+            privacyConsent: document.getElementById("privacyConsent")?.checked === true,
 
             submissionId: `DOD-${Date.now()}`,
             submittedAt: new Date().toISOString()
@@ -3582,7 +3872,9 @@
             positionRef: applicationData.referenceNumber,
             firstName: applicationData.firstName,
             lastName: applicationData.lastName,
-            email: applicationData.email
+            email: applicationData.email,
+            submissionId: applicationData.submissionId,
+            submittedAt: applicationData.submittedAt
           }));
 
           window.location.href = "success.html";
@@ -3590,13 +3882,21 @@
         } catch (error) {
           console.error(error);
           alert("Submission failed. Please check your internet connection and try again.");
+          showSubmissionStatus("Submission failed. Check your connection and try again. If the problem continues, contact the recruitment team.", "error");
           submitBtn.disabled = false;
-          submitBtn.textContent = "Submit";
+          submitBtn.textContent = "Submit Application";
         }
       });
 
+      function showSubmissionStatus(message, type) {
+        const status = document.getElementById("submissionStatus");
+        if (!status) return;
+        status.textContent = message;
+        status.className = `submission-status show ${type || "info"}`;
+      }
+
       function fileToBase64Object(inputId) {
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
           const input = document.getElementById(inputId);
 
           if (!input || !input.files || input.files.length === 0) {
@@ -3618,18 +3918,46 @@
           };
 
           reader.onerror = function () {
-            resolve(null);
+            reject(new Error(`Unable to read ${file.name}`));
           };
 
           reader.readAsDataURL(file);
         });
       }
 
+      function validateFileInput(input) {
+        const rule = FILE_RULES[input.id];
+        const file = input.files?.[0];
+        input.setCustomValidity("");
+
+        if (!rule || !file) return true;
+
+        const extension = file.name.includes(".") ? file.name.split(".").pop().toLowerCase() : "";
+        if (!rule.extensions.includes(extension)) {
+          input.setCustomValidity(`${rule.label} must be a ${rule.extensions.join(" or ").toUpperCase()} file.`);
+          return false;
+        }
+
+        if (file.size > rule.maxBytes) {
+          input.setCustomValidity(`${rule.label} exceeds the ${Math.round(rule.maxBytes / 1024 / 1024)} MB limit.`);
+          return false;
+        }
+
+        return true;
+      }
+
       document.querySelectorAll('input[type="file"]').forEach((input) => {
         input.addEventListener("change", () => {
           const output = document.querySelector(`[data-file-name="${input.id}"]`);
-          if (!output) return;
-          output.textContent = input.files.length ? `Selected file: ${input.files[0].name}` : "";
+          const isValid = validateFileInput(input);
+
+          if (output) {
+            output.textContent = input.files.length
+              ? `${isValid ? "Selected file" : "File not accepted"}: ${input.files[0].name}`
+              : "";
+          }
+
+          if (!isValid) input.reportValidity();
         });
       });
 
@@ -3659,6 +3987,13 @@
           reader.readAsDataURL(file);
         });
       }
+
+      const today = new Date().toISOString().split("T")[0];
+      const currentYear = new Date().getFullYear();
+      const dobInput = document.getElementById("dob");
+      const qualificationYearInput = document.getElementById("qualificationObtained");
+      if (dobInput) dobInput.max = today;
+      if (qualificationYearInput) qualificationYearInput.max = String(currentYear);
 
       renderVacancySelector();
       autoFillSelectedVacancyFromUrl();

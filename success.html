@@ -267,6 +267,11 @@
       <div class="reference-box">
         <h2><i class="bi bi-file-earmark-check-fill me-2"></i>Application Details</h2>
         <div class="details-grid">
+          <div class="detail-item" style="grid-column: 1 / -1;">
+            <span class="detail-label">Application Reference</span>
+            <span class="detail-value" id="successSubmissionId">Not provided</span>
+          </div>
+
           <div class="detail-item">
             <span class="detail-label">Applicant Name</span>
             <span class="detail-value" id="successApplicantName">Not provided</span>
@@ -350,6 +355,7 @@
       .join(' ');
 
     setText('successApplicantName', applicantName);
+    setText('successSubmissionId', savedApplication.submissionId);
     setText('successEmail', savedApplication.email);
     setText('successDivision', savedApplication.division || savedApplication.divisionBranch || savedApplication.positionCategoryDivision);
     setText('successPositionTitle', savedApplication.positionTitle || savedApplication.designation || savedApplication.position_title);
